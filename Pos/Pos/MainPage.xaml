@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d" xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             x:Class="Pos.MainPage"  NavigationPage.HasNavigationBar="false"
+             >
+
+    <Grid BackgroundColor="Orange">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" CornerRadius="0,0,40,40" HasShadow="True" BackgroundColor="white">
+            <Grid  Margin="0,15,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                 </Grid.RowDefinitions>
+                <Frame Margin="20,10" Padding="0">
+                    <Grid >
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView HeightRequest="30" WidthRequest="40" BackgroundColor="blue"/>
+                        <Entry Grid.Column="1" x:Name="TxtSearch" />
+                        <BoxView Grid.Column="2" HeightRequest="30" WidthRequest="40" BackgroundColor="red"/>
+                    </Grid>
+                </Frame>
+                <ScrollView Grid.Row="1" Orientation="Horizontal"   VerticalScrollBarVisibility="Never"  >
+                    <StackLayout x:Name="StCat"  Orientation="Horizontal" Spacing="10" Margin="10,0">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                             <pv:PancakeView CornerRadius="10" Margin="5,10,0,10" HasShadow="True" BackgroundColor="white">
+                                    <pv:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ListCounter_Tapped"/>
+                                    </pv:PancakeView.GestureRecognizers>
+                                       <Label Padding="20,5" Text="{Binding catName}"/>
+                                    </pv:PancakeView>
+                                </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </ScrollView>
+                <ScrollView Grid.Row="2" Orientation="Vertical" VerticalScrollBarVisibility="Never" >
+                    <CollectionView x:Name="CVArt" SelectionMode="Single"
+               SelectionChanged="CollectionViewListSelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout  Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Image HeightRequest="150" Source="{Binding ImagePath}"/>
+                                    <BoxView BackgroundColor="red" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Margin="15"/>
+                                    <StackLayout Grid.Row="1">
+                                        <Label Text="{Binding ArtName}"/>
+                                        <Label Text="{Binding Price}" TextColor="red" FontSize="Large" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </Grid>
+        </pv:PancakeView>
+
+        <StackLayout Grid.Row="1" HeightRequest="60" Orientation="Horizontal">
+            <Button x:Name="btToart" Clicked="btToart_Clicked" Text=" art "/>
+            <Button x:Name="btToCat" Clicked="btToCat_Clicked" Text=" cat "/>
+            <pv:PancakeView CornerRadius="10" Margin="10,10" HasShadow="True" BackgroundColor="white" HorizontalOptions="EndAndExpand" WidthRequest="50" HeightRequest="30" >
+                <pv:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ListCounter_Tapped"/>
+                </pv:PancakeView.GestureRecognizers>
+                <Label x:Name="LbCounter" Text="5" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+            </pv:PancakeView>
+            
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "/wrLoV5g3314+qjz036/t6Ln21uIPSEeLvW9UzDOl4XXrulZRndgALx4NJ8wM9G3VVV7amcMd8mr+/hF554yYQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\Pos\\Pos\\Pos.iOS\\Pos.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\sqlite-net-pcl\\1.6.292\\sqlite-net-pcl.1.6.292.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\sqlitepclraw.bundle_green\\1.1.13\\sqlitepclraw.bundle_green.1.1.13.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\sqlitepclraw.core\\1.1.13\\sqlitepclraw.core.1.1.13.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\sqlitepclraw.provider.sqlite3.ios_unified\\1.1.13\\sqlitepclraw.provider.sqlite3.ios_unified.1.1.13.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.essentials\\1.5.3.1\\xamarin.essentials.1.5.3.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.forms\\4.5.0.657\\xamarin.forms.4.5.0.657.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.forms.pancakeview\\1.3.7\\xamarin.forms.pancakeview.1.3.7.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\xamarin.plugin.sharedtransitions\\2.1.0\\xamarin.plugin.sharedtransitions.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
