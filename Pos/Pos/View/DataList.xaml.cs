@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
 namespace Pos.View
@@ -16,6 +17,19 @@ namespace Pos.View
     {
         public List<Product> products;
         public int fctId;
+
+        public decimal Total
+        {
+            get {
+
+                decimal t = 0;
+                foreach (Product pr in products)
+                {
+                    t += decimal.Parse(pr.Total);
+                }
+                return t; }
+        }
+
         public DataList()
         {
             InitializeComponent();
@@ -55,6 +69,8 @@ namespace Pos.View
         {
             base.OnAppearing();
             products = new List<Product>(GetListOfProduct());
+            CVArt.ItemsSource = products;
+            LbTotal.Text = string.Format("{0:F2}", Total);
         }
 
  
@@ -63,5 +79,23 @@ namespace Pos.View
             await Navigation.PopAsync();
         }
 
+        private async void Edite_Invoked(object sender, EventArgs e)
+        {
+          
+             
+            var pr = CVArt.SelectedItem  as Product;
+
+            await Navigation.PushAsync(new DetailProduct(pr));
+        }
+
+        private void Delete_Invoked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using Plugin.Media;
+using Xamarin.Forms;
 
 namespace Pos.Droid
 {
@@ -21,6 +22,7 @@ namespace Pos.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Forms.SetFlags("SwipeView_Experimental");
             await CrossMedia.Current.Initialize();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

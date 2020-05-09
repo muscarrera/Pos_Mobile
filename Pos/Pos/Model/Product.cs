@@ -30,6 +30,19 @@ namespace Pos.Model
         {
             get { return Path.Combine(App.dbPath, ImgName); }
         }
+        [Ignore]
+        public string PriceText
+        {
+            get { return string.Format("{0} ({1})  x  {2:F2} Dh",Qte,Unit, Price); }
+        }
+        [Ignore]
+        public string Total
+        {
+            get { return string.Format("{0:F2}", Qte * Price); }
+        }
+
+
+
 
         [Ignore]
         public Article article

@@ -13,7 +13,7 @@ namespace Pos
         public App()
         {
             InitializeComponent();
-
+          
             MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 
