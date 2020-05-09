@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"   xmlns:helpers="clr-namespace:Pos.Helpers"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Pos.View.DetailProduct" NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" Padding="0"
+                        CornerRadius="250" HasShadow="True" WidthRequest="200" HeightRequest="200" 
+                        HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
+            <StackLayout>
+                <Image  sharedTransitions:Transition.Name="ProductImage"
+                        x:Name="Img" Aspect="AspectFill" WidthRequest="220" HeightRequest="220" />
+                <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Margin="0,-220,0,0" BorderWidth="0"
+                            Clicked="Go_Back"    ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.KeyboardBackspace}, Size=30,Color=White}"/>
+            </StackLayout>
+        </pv:PancakeView>
+
+        <StackLayout Grid.Row="1" >
+            <Label x:Name="lbName"  FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+        <pv:PancakeView Grid.Row="2" Padding="0"
+                        CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="200" HeightRequest="40" 
+                        HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
+            <StackLayout Orientation="Horizontal">
+                <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
+                      Clicked="Min_Qte"
+              ImageSource="{FontImage FontFamily=AwesomeFont, Glyph={x:Static helpers:IconFont.Minus}, Size=15,Color=Black}"/>
+                <Entry x:Name="txtQte"  Text="5" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+
+                <Label  x:Name="lbUnit" Text="Un" Padding="2,10" />
+                <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
+                          Clicked="Add_Qte" 
+              ImageSource="{FontImage FontFamily=AwesomeFont, Glyph={x:Static helpers:IconFont.Plus}, Size=15,Color=Black}"/>
+            </StackLayout>
+        </pv:PancakeView>
+
+        <pv:PancakeView Grid.Row="3"  Padding="0" CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="200" HeightRequest="40" 
+                        HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
+            <StackLayout Orientation="Horizontal">
+
+                <Entry x:Name="txtPrice"  Text="5" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+
+                <Label Text="Dhs" Padding="2,10" />
+                <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
+              ImageSource="{FontImage FontFamily=AwesomeFont, Glyph={x:Static helpers:IconFont.CurrencyEur}, Size=15,Color=Black}"/>
+            </StackLayout>
+        </pv:PancakeView>
+
+
+        <StackLayout Grid.Row="4" VerticalOptions="FillAndExpand">
+
+            <pv:PancakeView  Padding="0"  CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="300" HeightRequest="60" 
+                        HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
+
+                <Button VerticalOptions="FillAndExpand" Text="Valider" FontSize="20" TextColor="White" BackgroundColor="Purple" Padding="70,10" BorderWidth="0"
+              ImageSource="{FontImage FontFamily=AwesomeFont, Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}"
+                        Clicked="Add_Item"/>
+            </pv:PancakeView>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

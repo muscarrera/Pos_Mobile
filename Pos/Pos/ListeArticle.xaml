@@ -7,8 +7,8 @@
              x:Class="Pos.ListeArticle"
              Title="Articles">
 
-    <ContentPage.ToolbarItems>
 
+    <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="TbAdd" Text="Add"  Clicked="TbAdd_Clicked" />
         <ToolbarItem x:Name="TbEdit" Text="Edit"  Clicked="TbEdit_Clicked" />
     </ContentPage.ToolbarItems>
@@ -22,7 +22,7 @@
                         <ImageCell 
                             Text="{Binding ArtName}" 
                             Detail="{Binding Price}"
-                            ImageSource="{Binding ImagePath}"/>
+                            ImageSource="{Binding ImgName}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

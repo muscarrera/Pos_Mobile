@@ -20,7 +20,6 @@ namespace Pos
             InitializeComponent();
         }
 
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -28,20 +27,20 @@ namespace Pos
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
                 con.CreateTable<Article>();
-                var cats = con.Table<Article>().ToList();
-                lsArt.ItemsSource = cats;
+                var arts = con.Table<Article>().ToList();
+                lsArt.ItemsSource = arts;
             }
         }
 
-        private void TbAdd_Clicked(object sender, EventArgs e)
+        private async  void TbAdd_Clicked(object sender, EventArgs e)
         {
-          Navigation.PushAsync(new AddEditArticles());
+            await Navigation.PushAsync(new AddEditArticles());
         }
 
-        private void TbEdit_Clicked(object sender, EventArgs e)
+        private async void TbEdit_Clicked(object sender, EventArgs e)
         {
             Article it = lsArt.SelectedItem as Article;
-            Navigation.PushAsync(new AddEditArticles(it));
+            await Navigation.PushAsync(new AddEditArticles(it));
         }
     }
 }

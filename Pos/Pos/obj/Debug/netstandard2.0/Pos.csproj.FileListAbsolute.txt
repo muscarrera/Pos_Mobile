@@ -5,6 +5,7 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Pos.pdb
 C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.dll
 C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.pdb
 C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.xml
+C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csprojAssemblyReference.cache
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\AddEditArticle.xaml.g.cs
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\AddEditCat.xaml.g.cs
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\App.xaml.g.cs
@@ -23,4 +24,4 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csproj.CopyC
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.dll
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\ref\Pos.dll
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.pdb
-C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csprojAssemblyReference.cache
+C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\View\DetailProduct.xaml.g.cs

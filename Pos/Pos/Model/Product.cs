@@ -18,6 +18,8 @@ namespace Pos.Model
         [MaxLength(250)]
         public string ArtRef { get; set; }
         [MaxLength(250)]
+        public string Unit { get; set; }
+        [MaxLength(250)]
         public string ImgName { get; set; }
         public double Price { get; set; }
         public double Qte { get; set; }
@@ -38,7 +40,9 @@ namespace Pos.Model
                 ArtRef = value.ArtRef;
                 Price = value.Price;
                 Cid = value.Cid;
-                ImgName = value.ImgName;        
+                Unit = value.Unit;
+                ImgName = value.ImgName;
+                Qte = 1;
             }
         }
 

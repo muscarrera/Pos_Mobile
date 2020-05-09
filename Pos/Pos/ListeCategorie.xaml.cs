@@ -20,16 +20,16 @@ namespace Pos
             InitializeComponent();
         }
 
-        private void TbAdd_Clicked(object sender, EventArgs e)
+        private async void TbAdd_Clicked(object sender, EventArgs e)
         {
             //Navigation.PushAsync(new AddEditCat());
-            Navigation.PushAsync(new AddEditCategory());
+            await Navigation.PushAsync(new AddEditCategory());
         }
 
-        private void TbEdit_Clicked(object sender, EventArgs e)
+        private async void TbEdit_Clicked(object sender, EventArgs e)
         {
             Category it = lsCat.SelectedItem as Category;
-            Navigation.PushAsync(new AddEditCategory(it));
+          await  Navigation.PushAsync(new AddEditCategory(it));
         }
 
         protected override void OnAppearing()
@@ -42,8 +42,6 @@ namespace Pos
                 var cats= con.Table<Category>().ToList();
                 lsCat.ItemsSource = cats;
             }
-                
-
         }
     }
 }

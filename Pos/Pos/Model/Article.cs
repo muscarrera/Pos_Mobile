@@ -17,6 +17,8 @@ namespace Pos.Model
         public string ArtName { get; set; }
         [MaxLength(250)] 
         public string ArtRef { get; set; }
+        [MaxLength(250)]
+        public string Unit { get; set; }
         public double Price { get; set; }
         [MaxLength(250)] 
         public string ImgName { get; set; }
@@ -24,11 +26,17 @@ namespace Pos.Model
        [Ignore]
         public string ImagePath
         {
-            get { return Path.Combine(App.dbPath, ImgName); }
+            get { return Path.Combine(App.imgPath, ImgName); }
+        }
+
+        [Ignore]
+        public string PriceText
+        {
+            get { return string.Format("{0:F2} Dh/" + Unit, Price); }
         }
 
 
-        public  static bool AddNewCat(Article art)
+        public static bool AddNewCat(Article art)
         {
              using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {

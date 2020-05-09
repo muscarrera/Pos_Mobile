@@ -7,7 +7,6 @@
              x:Class="Pos.ListeCategorie"
              Title="ListeCategorie">
     <ContentPage.ToolbarItems>
-
         <ToolbarItem x:Name="TbAdd" Text="Add"  Clicked="TbAdd_Clicked" />
         <ToolbarItem x:Name="TbEdit" Text="Edit"  Clicked="TbEdit_Clicked" />
     </ContentPage.ToolbarItems>

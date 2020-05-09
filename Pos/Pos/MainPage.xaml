@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:helpers="clr-namespace:Pos.Helpers"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d" xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              x:Class="Pos.MainPage"  NavigationPage.HasNavigationBar="false"
              >
 
-    <Grid BackgroundColor="Orange">
+    <Grid BackgroundColor="Purple">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -27,45 +28,114 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <BoxView HeightRequest="30" WidthRequest="40" BackgroundColor="blue"/>
-                        <Entry Grid.Column="1" x:Name="TxtSearch" />
-                        <BoxView Grid.Column="2" HeightRequest="30" WidthRequest="40" BackgroundColor="red"/>
+                        <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.SearchWeb},
+                            Size=30,Color=Gray}"/>
+                        <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" FontSize="14"/>
+                        <Button Grid.Column="2" HeightRequest="30" WidthRequest="40"  BackgroundColor="Transparent" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.MicrosoftXboxControllerMenu},
+                             Size=30,Color=Purple}"/>
+                        <Button Grid.Column="2" x:Name="BtClearText" HeightRequest="30" WidthRequest="40" IsVisible="False" BackgroundColor="White" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Delete},
+                             Size=20,Color=red}"
+                                Clicked="BtClearText_Clicked"/>
                     </Grid>
                 </Frame>
                 <ScrollView Grid.Row="1" Orientation="Horizontal"   VerticalScrollBarVisibility="Never"  >
                     <StackLayout x:Name="StCat"  Orientation="Horizontal" Spacing="10" Margin="10,0">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                             <pv:PancakeView CornerRadius="10" Margin="5,10,0,10" HasShadow="True" BackgroundColor="white">
-                                    <pv:PancakeView.GestureRecognizers>
+                             <pv:PancakeView CornerRadius="10" Margin="5,10,0,10" HasShadow="True" BackgroundColor="White">
+                                 
+                                 <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="SelectedStates">
+
+                                            <VisualState Name="Diselected">
+                                                <VisualState.Setters>
+                                                    <Setter  Property="BackgroundColor" Value="White" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                          
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter  Property="BackgroundGradientStops">
+                                                    <Setter.Value>
+                                                        <pv:GradientStopCollection>
+                                                            <pv:GradientStop Color="#FF4157"  Offset="0"/>
+                                                            <pv:GradientStop Color="#FF4359"  Offset="0.5"/>
+                                                            <pv:GradientStop Color="#FE93C5"  Offset="1"/>
+                                                        </pv:GradientStopCollection>
+                                                    </Setter.Value>
+                                                    </Setter>
+                                                    <Setter  Property="BackgroundGradientAngle" Value="270"/>
+                                             </VisualState.Setters>
+                                            </VisualState>
+                                            
+                                        </VisualStateGroup>
+                                 </VisualStateManager.VisualStateGroups>
+                                   
+                                 <pv:PancakeView.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="ListCounter_Tapped"/>
                                     </pv:PancakeView.GestureRecognizers>
-                                       <Label Padding="20,5" Text="{Binding catName}"/>
+                                    <Label Padding="20,5" Text="{Binding catName}">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup Name="SelectedStates">
+
+                                                <VisualState Name="Diselected">
+                                                    <VisualState.Setters>
+                                                        <Setter  Property="TextColor" Value="#707070" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+
+                                                <VisualState Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter  Property="TextColor" Value="#FFFFFF" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Label>
                                     </pv:PancakeView>
                                 </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
                 </ScrollView>
                 <ScrollView Grid.Row="2" Orientation="Vertical" VerticalScrollBarVisibility="Never" >
-                    <CollectionView x:Name="CVArt" SelectionMode="Single"
-               SelectionChanged="CollectionViewListSelectionChanged">
+                    <CollectionView x:Name="CVArt" SelectionMode="Single" Margin="10,0"
+                    SelectionChanged="CollectionViewListSelectionChanged">
                         <CollectionView.ItemsLayout>
-                            <GridItemsLayout  Orientation="Vertical" Span="2" />
+                            <GridItemsLayout  Orientation="Vertical" Span="3"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Padding="10">
+                                <StackLayout Padding="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                                <pv:PancakeView CornerRadius="5" Margin="5" Padding="0" HasShadow="True" BackgroundColor="White">
+                                <Grid >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    <Image HeightRequest="150" Source="{Binding ImagePath}"/>
-                                    <BoxView BackgroundColor="red" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Margin="15"/>
-                                    <StackLayout Grid.Row="1">
-                                        <Label Text="{Binding ArtName}"/>
-                                        <Label Text="{Binding Price}" TextColor="red" FontSize="Large" FontAttributes="Bold"/>
-                                    </StackLayout>
+                                            <Image HeightRequest="80" Source="{Binding ImgName}" Aspect="AspectFill">
+                                            </Image>
+                                    <Button  HeightRequest="10" WidthRequest="10" BackgroundColor="Transparent" BorderWidth="0"
+                                             HorizontalOptions="End" Margin="10" VerticalOptions="Start"
+                                            ImageSource="{FontImage FontFamily=AwesomeFont,
+                                            Glyph={x:Static helpers:IconFont.BookmarkPlus}, Size=22,Color=White}" Clicked="Button_Clicked"/>
+
+                                        <pv:PancakeView CornerRadius="5" Opacity="0.7" HasShadow="True" BackgroundColor="Black" Margin="2" VerticalOptions="End" HorizontalOptions="End" >
+                                            <Label Text="{Binding PriceText}" Margin="10,0" TextColor="red" FontSize="9" FontAttributes="Bold" />
+                                        </pv:PancakeView>
+                                    
+                                        <StackLayout Orientation="Horizontal" Grid.Row="1" Margin="10,-8,10,10">
+                                                <Label Text="{Binding ArtName}" FontSize="12" HorizontalOptions="FillAndExpand"/>
+                                        </StackLayout>
                                 </Grid>
+                                </pv:PancakeView>
+                                </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
@@ -74,11 +144,29 @@
         </pv:PancakeView>
 
         <StackLayout Grid.Row="1" HeightRequest="60" Orientation="Horizontal">
-            <Button x:Name="btToart" Clicked="btToart_Clicked" Text=" art "/>
-            <Button x:Name="btToCat" Clicked="btToCat_Clicked" Text=" cat "/>
-            <pv:PancakeView CornerRadius="10" Margin="10,10" HasShadow="True" BackgroundColor="white" HorizontalOptions="EndAndExpand" WidthRequest="50" HeightRequest="30" >
+            <ScrollView Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="CVPrd"  Orientation="Horizontal" Spacing="15" Margin="10,0" BindableLayout.ItemsSource="{Binding ProductList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <pv:PancakeView CornerRadius="10" Margin="5,5,0,5" HasShadow="True" BackgroundColor="White">
+                                   <pv:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="EditProduct_Buttom"/>
+                                </pv:PancakeView.GestureRecognizers>
+                                <StackLayout>
+                                    <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="50" HeightRequest="50" Source="{Binding ImgName}" Aspect="AspectFill"/>
+                                    <pv:PancakeView CornerRadius="5" Margin="2,-20,2,2" Opacity="0.7" HasShadow="True" BackgroundColor="Black"   VerticalOptions="Start" HorizontalOptions="Center" >
+                                        <Label Text="{Binding Qte}" Margin="6,0" TextColor="red" FontSize="9" FontAttributes="Bold" />
+                                    </pv:PancakeView>
+                                </StackLayout>
+                            </pv:PancakeView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            
+            <pv:PancakeView CornerRadius="10" Margin="10,10" HasShadow="True" BackgroundColor="white"   WidthRequest="50" HeightRequest="30" >
                 <pv:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ListCounter_Tapped"/>
+                    <TapGestureRecognizer Tapped="GoTo_List"/>
                 </pv:PancakeView.GestureRecognizers>
                 <Label x:Name="LbCounter" Text="5" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
             </pv:PancakeView>

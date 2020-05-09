@@ -28,6 +28,7 @@ changeImageTransform;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90
 changeTransform;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\2\jl\res\transition\navigation_transition.xml
 color;obj\Debug\90\res\values\colors.xml
 external-cache-path;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-files-path;obj\Debug\90\res\xml\file_paths.xml
 external-path;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
@@ -36,6 +37,7 @@ item;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\47\jl\res\va
 item;obj\Debug\90\res\values\styles.xml
 LinearLayout;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\47\jl\res\layout\bottomtablayout.xml
 paths;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+paths;obj\Debug\90\res\xml\file_paths.xml
 resources;C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\lp\47\jl\res\values\styles.xml
 resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\styles.xml
