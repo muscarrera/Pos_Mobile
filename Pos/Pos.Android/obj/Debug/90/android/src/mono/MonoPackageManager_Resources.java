@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "Pos.Android.dll" comes first in this list. */
 		"Pos.Android.dll",
+		"dotMorten.Xamarin.Forms.AutoSuggestBox.dll",
 		"FormsViewGroup.dll",
 		"Plugin.Media.dll",
 		"Plugin.SharedTransitions.dll",

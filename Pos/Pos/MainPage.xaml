@@ -29,7 +29,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0"
-                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                                ImageSource="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.SearchWeb},
                             Size=30,Color=Gray}"/>
                         <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" FontSize="14"/>
@@ -164,7 +164,7 @@
                 </StackLayout>
             </ScrollView>
             
-            <pv:PancakeView CornerRadius="10" Margin="10,10" HasShadow="True" BackgroundColor="white"   WidthRequest="50" HeightRequest="30" >
+            <pv:PancakeView CornerRadius="10" Margin="10,5" HasShadow="True" BackgroundColor="white"   WidthRequest="50"  >
                 <pv:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="GoTo_List"/>
                 </pv:PancakeView.GestureRecognizers>

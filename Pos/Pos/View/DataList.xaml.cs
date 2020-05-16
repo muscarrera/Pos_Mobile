@@ -1,11 +1,13 @@
-﻿using Pos.Model;
+﻿using Java.Nio.Channels;
+using Java.Sql;
+using Pos.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml;
 using Xamarin.Forms;
 using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
@@ -17,16 +19,19 @@ namespace Pos.View
     {
         public List<Product> products;
         public int fctId;
+        Facture facture;
 
-        public decimal Total
+        public double Total
         {
             get {
 
-                decimal t = 0;
+                double t = 0;
                 foreach (Product pr in products)
                 {
-                    t += decimal.Parse(pr.Total);
+                    t += double.Parse(pr.Total);
                 }
+                facture.Total = t;
+                Facture.Edit(facture);
                 return t; }
         }
 
@@ -35,11 +40,12 @@ namespace Pos.View
             InitializeComponent();
         }
 
-        public DataList(int fid)
+        public DataList(Facture fct)
         {
             InitializeComponent();
-            fctId = fid;
-        }
+            fctId = fct.Fid;
+            facture=fct;
+         }
 
       
         private void GoBack(object sender, EventArgs e)
@@ -69,8 +75,14 @@ namespace Pos.View
         {
             base.OnAppearing();
             products = new List<Product>(GetListOfProduct());
-            CVArt.ItemsSource = products;
+           // CVArt.ItemsSource = products;
             LbTotal.Text = string.Format("{0:F2}", Total);
+            BindableLayout.SetItemsSource(CVPrd, products);
+
+            lbId.Text = fctId.ToString();
+            lbDate.Text = facture.FctDate.ToString("g");
+            lbName.Text = facture.ClientName;
+            
         }
 
  
@@ -82,20 +94,30 @@ namespace Pos.View
         private async void Edite_Invoked(object sender, EventArgs e)
         {
           
-             
-            var pr = CVArt.SelectedItem  as Product;
-
-            await Navigation.PushAsync(new DetailProduct(pr));
+            var pr = ((SwipeItem)sender).BindingContext as Product;
+             await Navigation.PushAsync(new DetailProduct(pr));
         }
 
-        private void Delete_Invoked(object sender, EventArgs e)
+        private async void Delete_Invoked(object sender, EventArgs e)
         {
+            var pr = ((SwipeItem)sender).BindingContext as Product;
 
-        }
+            string str = "Voulez vous suprimer : " + Environment.NewLine;
+            str += pr.Qte.ToString() + " (" + pr.Unit + " )" + pr.ArtName; 
+            bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
-        private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            if (answer)
+            {
+                if (Product.Delete(pr))
+                {
+                products.Remove(pr);
+                LbTotal.Text = string.Format("{0:F2}", Total);
+                    List<Product> prd = new List<Product>(products);
+                    BindableLayout.SetItemsSource(CVPrd, prd);
+                }
 
-        }
+            }
+         }
+
     }
 }

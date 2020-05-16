@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iSpYfNHQGTRyxx7bYQHbxF1/oAvDsri1NOYdKzxss/pgKaSSbWIT+R2r5mFnZF1RkHy93Tx/Qj6gLZb+oeTAWA==",
+  "dgSpecHash": "F4zPne/9FimcZh2MKjJ5NcvymmYRGsKaPxY0rNiBHZujRtUKhENLGOZ+yso4JPej+iHjY8I8CEQAkltUwn6C/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\source\\repos\\Pos\\Pos\\Pos\\Pos.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\dotmorten.xamarin.forms.autosuggestbox\\1.1.1\\dotmorten.xamarin.forms.autosuggestbox.1.1.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\sqlite-net-pcl\\1.6.292\\sqlite-net-pcl.1.6.292.nupkg.sha512",

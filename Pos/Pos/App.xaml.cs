@@ -1,4 +1,5 @@
 ﻿using Plugin.SharedTransitions;
+using Pos.View;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,24 +14,26 @@ namespace Pos
         public App()
         {
             InitializeComponent();
-          
-            MainPage = new SharedTransitionNavigationPage(new MainPage());
+
+            //  MainPage = new SharedTransitionNavigationPage(new MainPage());
+            MainPage = new SharedTransitionNavigationPage(new ListesFacture());
         }
 
         public App(string dbLocalPath)
         {
             InitializeComponent();
 
-            MainPage = new SharedTransitionNavigationPage(new MainPage());
+           // MainPage = new SharedTransitionNavigationPage(new MainPage());
             dbPath = dbLocalPath;
         }
         public App(string dbLocalPath,String imgLocalPath)
         {
             InitializeComponent();
-
-            MainPage = new SharedTransitionNavigationPage(new MainPage());
+            MainPage = new SharedTransitionNavigationPage(new ListesFacture());
+            //  MainPage = new SharedTransitionNavigationPage(new MainPage());
             dbPath = dbLocalPath;
             imgPath = imgLocalPath;
+
         }
         protected override void OnStart()
         {

@@ -25,6 +25,8 @@ namespace Pos
         public List<Article> SearchedArticleList;
         public List<Product> ProductList;
         public int fctId = 1;
+        public Facture facture;
+
 
         private List<Article> GetListOfArt()
         {
@@ -58,17 +60,33 @@ namespace Pos
 
         }
 
-        protected override void OnAppearing()
+        public MainPage(Facture fct)
+        {
+            InitializeComponent();
+            this.BindingContext = this;
+            facture = fct;
+            fctId = fct.Fid;
+        }
+
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-            CategoryList = new List<Category>(GetListOfCat());
-            ArticleList =  new List<Article>(GetListOfArt());
-            ProductList = new List<Product>( GetListOfProduct());
-            LbCounter.Text = ProductList.Count.ToString();
+            await Task.Run(() =>
+             {
+                 CategoryList = new List<Category>(GetListOfCat());
+                 ArticleList = new List<Article>(GetListOfArt());
+                 ProductList = new List<Product>(GetListOfProduct());
+                 LbCounter.Text = ProductList.Count.ToString();
+                 try
+                 {
+                     BindableLayout.SetItemsSource(StCat, CategoryList);
+                     BindableLayout.SetItemsSource(CVPrd, ProductList);
+                     CVArt.ItemsSource = ArticleList;
+                 }
+                 catch (Exception) { }
 
-            BindableLayout.SetItemsSource( StCat, CategoryList);
-            BindableLayout.SetItemsSource(CVPrd, ProductList);
-            CVArt.ItemsSource = ArticleList;
+             });
+            
         }
         private void TapCategory_Top(object sender, EventArgs e)
         {
@@ -77,26 +95,6 @@ namespace Pos
         private void ListCounter_Tapped(object sender, EventArgs e)
         {
             string TextValue = "";
-
-            //if (TxtSearch.Text != null)
-            //{
-            //     if (TxtSearch.Text.Contains(':'))
-            //     {
-            //       string[] str = TxtSearch.Text.Split(';');
-            //          for (int i = 0; i < str.Length; i++)
-            //          {
-            //        if (!str[i].Contains(':'))
-            //        {
-            //        if (TextValue != "")
-            //                    TextValue += ";";
-            //        TextValue += str[i];
-            //        }
-            //        }
-            //    }
-            //}
-         
-            //if (TextValue != "")
-            //    TextValue += ";";
             TextValue += "Ct:";
 
             var view = sender as PancakeView;
@@ -111,8 +109,8 @@ namespace Pos
                 var ch = element.Children[0] as Label;
                 VisualStateManager.GoToState(ch, "Diselected");
             }
-            VisualStateManager.GoToState(view, "Selected");
-            VisualStateManager.GoToState(st, "Selected");
+                VisualStateManager.GoToState(view, "Selected");
+                VisualStateManager.GoToState(st, "Selected");
         }
 
         private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -153,7 +151,7 @@ namespace Pos
             LbCounter.Text = ProductList.Count.ToString();
             CVArt.SelectedItem = null; ;
             }
-            catch (Exception ex) { }
+            catch (Exception) { }
         }
 
         private async void btToCat_Clicked(object sender, EventArgs e)
@@ -218,7 +216,7 @@ namespace Pos
 
         private async void GoTo_List(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DataList(fctId));
+            await Navigation.PushAsync(new DataList(facture));
         }
     }
 }

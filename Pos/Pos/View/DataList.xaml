@@ -18,44 +18,44 @@
                         HasShadow="True" BackgroundColor="White">
             
             <StackLayout Orientation="Horizontal" HeightRequest="80">
+                <Button HeightRequest="30" WidthRequest="40" Margin="5,10" BackgroundColor="Transparent" BorderWidth="0"
+                           Padding="3" Clicked="GoBack" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.KeyboardBackspace}, Size=25,Color=Purple}"/>
                 <StackLayout HorizontalOptions="FillAndExpand">
                                     
             <Button HeightRequest="30" WidthRequest="40" Margin="0,10" BackgroundColor="Transparent" BorderWidth="0"
                             ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Account}, Size=25,Color=#707070}"/>
-                    <Label Text="Client/" HorizontalTextAlignment="Center" TextColor="Purple" Margin="0,-15,0,0" FontAttributes="Bold"/>
+                    <Label  x:Name="lbName" Text="{Binding ClientName}" HorizontalTextAlignment="Center" TextColor="Purple" Margin="0,-15,0,0" FontAttributes="Bold"/>
                 </StackLayout>
                 <StackLayout >
                     <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Margin="0,10" BorderWidth="0"
-                            Clicked="Go_Back"    ImageSource="{FontImage FontFamily=AwesomeFont,
+                            ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Counter}, Size=20,Color=#707070}"/>
-                    <Label Text="0001"   HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold" />
+                    <Label x:Name="lbId" Text="{Binding FctId}"   HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold" />
                 </StackLayout>
                 <StackLayout  WidthRequest="80" Margin="0,0,10,0">
 
                     <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent"  Margin="0,10" BorderWidth="0"
-                            Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=#707070}"/>
-                    <Label Text="11/05/20" HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold"/>
+                    <Label  x:Name="lbDate" Text="{Binding FctDate}" HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold"/>
                 </StackLayout>
             </StackLayout>
         </pv:PancakeView>
 
         <StackLayout Grid.Row="1" >
-            <CollectionView x:Name="CVArt" SelectionMode="Single" Margin="10,0"
-                    SelectionChanged="CollectionViewListSelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout  Orientation="Vertical" ItemSpacing="5"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="CVPrd"  Orientation="Vertical" Spacing="15" Margin="10,0" BindableLayout.ItemsSource="{Binding ProductList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
 
-                        <pv:PancakeView  CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                            <pv:PancakeView  CornerRadius="10" HasShadow="True" BackgroundColor="White">
                             <SwipeView>
                     <SwipeView.LeftItems>
                         <SwipeItems>
                             <SwipeItem Text="Modifie"
-                       BackgroundColor="LightGreen"
+                                       BackgroundColor="LightGreen"
                        Invoked="Edite_Invoked"   
                        IconImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.TableSettings }, Size=15,Color=Purple}"/>
@@ -90,8 +90,9 @@
                 </SwipeView>
         </pv:PancakeView>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                    </BindableLayout.ItemTemplate>
+        </StackLayout>
+        </ScrollView>
         </StackLayout>
         
         <StackLayout Orientation="Horizontal" Grid.Row="2"  Margin="10,0,10,0">
@@ -105,7 +106,15 @@
 
         <StackLayout Orientation="Horizontal" Grid.Row="3">
 
-            <pv:PancakeView   CornerRadius="15" HorizontalOptions="Start"  Margin="15,10"
+            <pv:PancakeView   CornerRadius="15" Margin="15,10,0,10"
+                        HasShadow="True" BackgroundColor="White" BorderColor="#7d7d7d" BorderThickness="1">
+                <Button  BackgroundColor="Transparent" TextColor="Purple"  WidthRequest="50"
+                            HorizontalOptions="FillAndExpand" BorderWidth="0" 
+                            Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Home}, Size=20,Color=#7d7d7d}"/>
+            </pv:PancakeView>
+            
+            <pv:PancakeView   CornerRadius="15" HorizontalOptions="Start"  Margin="0,10"
                         HasShadow="True" BackgroundColor="White" BorderColor="Purple" BorderThickness="1">
                    <Button  BackgroundColor="Transparent" TextColor="Purple" Padding="15,10" VerticalOptions="FillAndExpand" 
                             HorizontalOptions="FillAndExpand" BorderWidth="0" Text="    Cache"

@@ -17,7 +17,7 @@ namespace Pos.View
 
         bool isEdit = false;
         Article article;
-
+        List<Category> cats;
         public AddEditArticles()
         {
             InitializeComponent();
@@ -27,22 +27,23 @@ namespace Pos.View
         public AddEditArticles(Article ar)
         {
             InitializeComponent();
-             GetListOfCat();
+            cats= new List<Category>(GetListOfCat());
             isEdit = true;
             article = ar;
 
             TxtName.Text=article.ArtName ; 
-            TxtRef.Text=article.ArtRef  ; 
-            TxtPrix.Text = article.Price.ToString() ;
-            CatPicker.SelectedItem = article.Cid;
+            TxtRef.Text=article.ArtRef  ;
+            TxtUnit.Text = article.Unit;
+            TxtPrix.Text = article.Price.ToString();
+            CatPicker.SelectedItem = cats.Where(x => x.catName == article.Cid).Select(x => x).FirstOrDefault();
             Img.Source = ImageSource.FromFile(article.ImgName);
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
             if (!isEdit)
-                AddNewCat();
+               AddNewCat();
             else
-                EditCat();
+              EditCat();
         }
         private List<Category> GetListOfCat()
         {
@@ -55,12 +56,15 @@ namespace Pos.View
                  return ls;
             }
         }
-        private void EditCat()
+        private async void EditCat()
         {
-            using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+            await System.Threading.Tasks.Task.Run(() =>
+            {
+                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
                 article.ArtName = TxtName.Text;
                 article.ArtRef = TxtRef.Text;
+                article.Unit = TxtUnit.Text;
                 article.Price = double.Parse(TxtPrix.Text);
                 article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
                 con.CreateTable<Article>();
@@ -68,26 +72,29 @@ namespace Pos.View
 
                 if (i > 0)
                     Navigation.PopAsync();
-            }
+                }
+            });
         }
-        private void AddNewCat()
+        private async void AddNewCat()
         {
             article.ArtName = TxtName.Text;
             article.ArtRef = TxtRef.Text;
             article.Price = double.Parse(TxtPrix.Text);
+            article.Unit = TxtUnit.Text;
             article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
 
-
-            using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+            await System.Threading.Tasks.Task.Run(() =>
             {
-                con.CreateTable<Article>();
-                int i = con.Insert(article);
+                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+                {
+                    con.CreateTable<Article>();
+                    int i = con.Insert(article);
 
-                if (i > 0)
-                    Navigation.PopAsync();
-            }
-
-
+                    if (i > 0)
+                        Navigation.PopAsync();
+                }
+            });
+         
         }
 
         private async void LoadImage(object sender, EventArgs e)
@@ -100,7 +107,7 @@ namespace Pos.View
             }
             var mediaOption = new PickMediaOptions()
             {
-                PhotoSize = PhotoSize.Medium
+                PhotoSize = PhotoSize.Small
             };
 
             var selectedImage = await CrossMedia.Current.PickPhotoAsync(mediaOption);
@@ -109,7 +116,6 @@ namespace Pos.View
             article.ImgName = selectedImage.Path;
 
         }
-
         private async void TakeImage(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
@@ -135,10 +141,6 @@ namespace Pos.View
             });
              article.ImgName = file.AlbumPath;
                    }
-
-
-
-
 
       }
 }

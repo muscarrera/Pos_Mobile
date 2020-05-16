@@ -25,9 +25,11 @@ namespace Pos.View
 
         public AddEditCategory(Category c)
         {
-            InitializeComponent();
+             InitializeComponent();
             isEdit = true;
             cat = c;
+            TxtName.Text = cat.catName;
+            this.BindingContext = this;
         }
 
 

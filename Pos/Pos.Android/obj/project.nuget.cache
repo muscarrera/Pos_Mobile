@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Qyert2FdfpAjx80NI33/YOV9JMmgTaO42+wnXRkjVO2DzaoEZ+vGlg0rqv/5T5mJnFjlcZv3ujc3S76E8Zr3kA==",
+  "dgSpecHash": "OfG5X63gsKgw1aJloF2SaK6KAwj1XEi5zO9MO+E7tJiAoPRGZCvd1iKghb5hrjc+XqAZjKgneCm7G2XnmI3bhA==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\source\\repos\\Pos\\Pos\\Pos.Android\\Pos.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\dotmorten.xamarin.forms.autosuggestbox\\1.1.1\\dotmorten.xamarin.forms.autosuggestbox.1.1.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\sqlite-net-pcl\\1.6.292\\sqlite-net-pcl.1.6.292.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\sqlitepclraw.bundle_green\\1.1.13\\sqlitepclraw.bundle_green.1.1.13.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\sqlitepclraw.core\\1.1.13\\sqlitepclraw.core.1.1.13.nupkg.sha512",

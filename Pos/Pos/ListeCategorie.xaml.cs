@@ -15,6 +15,7 @@ namespace Pos
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListeCategorie : ContentPage
     {
+        List<Category> catList;
         public ListeCategorie()
         {
             InitializeComponent();
@@ -28,8 +29,14 @@ namespace Pos
 
         private async void TbEdit_Clicked(object sender, EventArgs e)
         {
-            Category it = lsCat.SelectedItem as Category;
-          await  Navigation.PushAsync(new AddEditCategory(it));
+            try
+            {
+                 Category it = lsCat.SelectedItem as Category;
+                if (it != null)
+                    await  Navigation.PushAsync(new AddEditCategory(it));
+         
+            }
+            catch (Exception)     {            }
         }
 
         protected override void OnAppearing()
@@ -41,7 +48,30 @@ namespace Pos
                 con.CreateTable<Category>();
                 var cats= con.Table<Category>().ToList();
                 lsCat.ItemsSource = cats;
+                catList = cats;
             }
+        }
+
+        private async void TbDetele_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Category pr = lsCat.SelectedItem as Category;
+
+                string str = "Voulez vous suprimer : " + Environment.NewLine;
+                str += pr.catName;
+                bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
+
+                if (answer)
+                {
+                    if (Category.Delete(pr))
+                    {
+                        catList.Remove(pr);
+                        lsCat.ItemsSource = new List<Category>(catList);
+                    }
+                }
+            }
+            catch (Exception) { }
         }
     }
 }

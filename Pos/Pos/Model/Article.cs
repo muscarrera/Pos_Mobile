@@ -36,7 +36,7 @@ namespace Pos.Model
         }
 
 
-        public static bool AddNewCat(Article art)
+        public static bool AddNew(Article art)
         {
              using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
@@ -48,7 +48,7 @@ namespace Pos.Model
             }
             return false;
         }
-        public static bool DeleteCat(Article art)
+        public static bool Delete(Article art)
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
@@ -60,7 +60,7 @@ namespace Pos.Model
             }
             return false;
         }
-        public static bool EditCat(Article art)
+        public static bool Edit(Article art)
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {               

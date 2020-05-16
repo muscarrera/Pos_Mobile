@@ -3,20 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d"   xmlns:helpers="clr-namespace:Pos.Helpers"
              x:Class="Pos.ListeCategorie"
              Title="ListeCategorie">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="TbAdd" Text="Add"  Clicked="TbAdd_Clicked" />
-        <ToolbarItem x:Name="TbEdit" Text="Edit"  Clicked="TbEdit_Clicked" />
-    </ContentPage.ToolbarItems>
     
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" >
+            <Button WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbAdd_Clicked" />
+            <Button  WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"   Clicked="TbEdit_Clicked" />
+            <Button  WidthRequest="40" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  Clicked="TbDetele_Clicked"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lsCat">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding catName}" />
+                        <TextCell TextColor="Purple" Text="{Binding catName}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
