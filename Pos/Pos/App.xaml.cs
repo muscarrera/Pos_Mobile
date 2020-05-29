@@ -1,4 +1,5 @@
 ﻿using Plugin.SharedTransitions;
+using Pos.Data;
 using Pos.View;
 using System;
 using Xamarin.Forms;
@@ -10,7 +11,8 @@ namespace Pos
     {
        public static string dbPath = string.Empty;
         public static string imgPath = string.Empty;
-
+       
+        public static ArticleData articleData;
         public App()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace Pos
 
            // MainPage = new SharedTransitionNavigationPage(new MainPage());
             dbPath = dbLocalPath;
+            articleData = new ArticleData(dbPath);
         }
         public App(string dbLocalPath,String imgLocalPath)
         {
@@ -33,7 +36,7 @@ namespace Pos
             //  MainPage = new SharedTransitionNavigationPage(new MainPage());
             dbPath = dbLocalPath;
             imgPath = imgLocalPath;
-
+            articleData = new ArticleData(dbPath);
         }
         protected override void OnStart()
         {

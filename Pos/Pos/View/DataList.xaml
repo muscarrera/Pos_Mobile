@@ -117,7 +117,7 @@
             <pv:PancakeView   CornerRadius="15" HorizontalOptions="Start"  Margin="0,10"
                         HasShadow="True" BackgroundColor="White" BorderColor="Purple" BorderThickness="1">
                    <Button  BackgroundColor="Transparent" TextColor="Purple" Padding="15,10" VerticalOptions="FillAndExpand" 
-                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="    Cache"
+                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="    Soler"
                             Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=Gold}"/>
             </pv:PancakeView>
@@ -125,7 +125,7 @@
             <pv:PancakeView   CornerRadius="15" HorizontalOptions="FillAndExpand"  Margin="0,10,-20,10"
                         HasShadow="True" BackgroundColor="Purple" BorderColor="Purple" BorderThickness="1">
                 <Button  BackgroundColor="Transparent" TextColor="White" FontSize="20"  Padding="15,10" VerticalOptions="FillAndExpand" 
-                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="Cache"
+                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="Enregistrer"
                          
                             Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=Gold}"/>

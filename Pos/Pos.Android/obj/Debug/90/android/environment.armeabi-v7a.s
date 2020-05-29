@@ -23,7 +23,7 @@
 	.section	.rodata..L.str.1,"aMS",%progbits,1
 	.type	.L.str.1, %object
 .L.str.1:
-	.asciz	"com.companyname.pos"
+	.asciz	"com.novasoft.pospro"
 	.size	.L.str.1, 20
 	.section	.data.application_config,"aw",%progbits
 	.type	application_config, %object
@@ -89,7 +89,7 @@ mono_aot_mode_name:
 	.section	.rodata..L.str.8,"aMS",%progbits,1
 	.type	.L.str.8, %object
 .L.str.8:
-	.asciz	"f34ae906-2e3c-4179-aad1-a8b80d3dba24"
+	.asciz	"db374cda-4066-42f9-ad06-986f49d56c1b"
 	.size	.L.str.8, 37
 	.section	.rodata..L.str.9,"aMS",%progbits,1
 	.type	.L.str.9, %object

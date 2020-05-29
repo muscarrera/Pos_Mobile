@@ -15,9 +15,11 @@ namespace Pos.View
     public partial class AddEditArticles : ContentPage
     {
 
-        bool isEdit = false;
+      
         Article article;
         List<Category> cats;
+
+
         public AddEditArticles()
         {
             InitializeComponent();
@@ -28,7 +30,6 @@ namespace Pos.View
         {
             InitializeComponent();
             cats= new List<Category>(GetListOfCat());
-            isEdit = true;
             article = ar;
 
             TxtName.Text=article.ArtName ; 
@@ -38,13 +39,18 @@ namespace Pos.View
             CatPicker.SelectedItem = cats.Where(x => x.catName == article.Cid).Select(x => x).FirstOrDefault();
             Img.Source = ImageSource.FromFile(article.ImgName);
         }
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (!isEdit)
-               AddNewCat();
-            else
-              EditCat();
+            article.ArtName = TxtName.Text;
+            article.ArtRef = TxtRef.Text;
+            article.Unit = TxtUnit.Text;
+            article.Price = double.Parse(TxtPrix.Text);
+            article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
+
+            await App.articleData.SaveArticleAsync(article);
+            await Navigation.PopAsync();
         }
+
         private List<Category> GetListOfCat()
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
@@ -56,47 +62,6 @@ namespace Pos.View
                  return ls;
             }
         }
-        private async void EditCat()
-        {
-            await System.Threading.Tasks.Task.Run(() =>
-            {
-                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
-            {
-                article.ArtName = TxtName.Text;
-                article.ArtRef = TxtRef.Text;
-                article.Unit = TxtUnit.Text;
-                article.Price = double.Parse(TxtPrix.Text);
-                article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
-                con.CreateTable<Article>();
-                int i = con.Update(article);
-
-                if (i > 0)
-                    Navigation.PopAsync();
-                }
-            });
-        }
-        private async void AddNewCat()
-        {
-            article.ArtName = TxtName.Text;
-            article.ArtRef = TxtRef.Text;
-            article.Price = double.Parse(TxtPrix.Text);
-            article.Unit = TxtUnit.Text;
-            article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
-
-            await System.Threading.Tasks.Task.Run(() =>
-            {
-                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
-                {
-                    con.CreateTable<Article>();
-                    int i = con.Insert(article);
-
-                    if (i > 0)
-                        Navigation.PopAsync();
-                }
-            });
-         
-        }
-
         private async void LoadImage(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();

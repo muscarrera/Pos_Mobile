@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" xmlns:helpers="clr-namespace:Pos.Helpers"  NavigationPage.HasNavigationBar="False"
+             x:Class="Pos.View.ListesFacture">
+    <MasterDetailPage.Master>
+
+        <ContentPage Padding="25,15" Title=" Menu " IconImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Menu}, Size=20,Color=#7d7d7d}">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="Receipts :" FontAttributes="Bold" TextColor="#7d7d7d"/>
+                    <Button Text="Listes des Receipts"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.ClipboardList}, Size=20,Color=Purple}"  HorizontalOptions="Start"
+                            Clicked="GoToFactures"/>
+                    <Button Text="Nouveau Receipt"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.PlusCircle}, Size=20,Color=Purple}"  HorizontalOptions="Start"
+                              Clicked="GoToAddFacture"/>
+                    <Label Text="------------------------" FontAttributes="Bold" Margin="0,25,0,0" TextColor="#7d7d7d"/>
+                    
+                    <Label Text="Articles :" FontAttributes="Bold" TextColor="#7d7d7d"/>
+                    <Button Text="Listes des Articles"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Sprout}, Size=20,Color=Purple}"  HorizontalOptions="Start"
+                             Clicked="GoToArticles"/>
+                    <Button Text="Nouveau Article"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.PlusCircle}, Size=20,Color=Purple}"  HorizontalOptions="Start"
+                              Clicked="GoToAddArticle"/>
+
+                    <Label Text="Groupes :" FontAttributes="Bold" TextColor="#7d7d7d"/>
+                    <Button Text="Listes des Groupes"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.LightbulbGroup}, Size=20,Color=Purple}"  HorizontalOptions="Start" 
+                              Clicked="GoToGroupes"/>
+
+                    <Label Text="Client :" FontAttributes="Bold" TextColor="#7d7d7d"/>
+                    <Button Text="Listes des Client"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.AccountGroup}, Size=20,Color=Purple}" HorizontalOptions="Start" 
+                              Clicked="GoToClients"/>
+
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+        
+    </MasterDetailPage.Master>
+
+    
+    <MasterDetailPage.Detail>
+        <ContentPage >
+            <ContentPage.Content>
+                <Label Text="details" />
+            </ContentPage.Content>
+        </ContentPage>
+
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

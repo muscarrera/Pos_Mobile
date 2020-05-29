@@ -26,3 +26,4 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.pdb
 C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.xml
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csproj.CopyComplete
+C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csprojAssemblyReference.cache

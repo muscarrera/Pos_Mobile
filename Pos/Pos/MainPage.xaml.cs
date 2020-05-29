@@ -68,13 +68,12 @@ namespace Pos
             fctId = fct.Fid;
         }
 
-        protected async override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await Task.Run(() =>
-             {
+       
                  CategoryList = new List<Category>(GetListOfCat());
-                 ArticleList = new List<Article>(GetListOfArt());
+                  ArticleList = await App.articleData.GetArticlesAsync();
                  ProductList = new List<Product>(GetListOfProduct());
                  LbCounter.Text = ProductList.Count.ToString();
                  try
@@ -84,8 +83,6 @@ namespace Pos
                      CVArt.ItemsSource = ArticleList;
                  }
                  catch (Exception) { }
-
-             });
             
         }
         private void TapCategory_Top(object sender, EventArgs e)

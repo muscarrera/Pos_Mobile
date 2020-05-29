@@ -21,7 +21,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                  </Grid.RowDefinitions>
-                <Frame Margin="20,10" Padding="0">
+                <Frame Margin="20,10" Padding="0"  BorderColor="#e7e7e7">
                     <Grid >
                         <Grid.ColumnDefinitions >
                             <ColumnDefinition Width="Auto"/>

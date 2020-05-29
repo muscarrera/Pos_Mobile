@@ -22,17 +22,10 @@ namespace Pos
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
-            {
-                con.CreateTable<Article>();
-                var arts = con.Table<Article>().ToList();
-                lsArt.ItemsSource = arts;
-                articleList = new List<Article>(arts);
-            }
+            articleList = await App.articleData.GetArticlesAsync();
         }
 
         private async  void TbAdd_Clicked(object sender, EventArgs e)
