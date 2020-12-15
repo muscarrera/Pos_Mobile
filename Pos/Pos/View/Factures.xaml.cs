@@ -44,6 +44,7 @@ namespace Pos.View
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
+              
                 con.CreateTable<Facture>();
                 return con.Table<Facture>().ToList();
             }
@@ -58,7 +59,7 @@ namespace Pos.View
             {
                 //Set the ItemsSource to be your filtered dataset
 
-                ((AutoSuggestBox)sender).ItemsSource = clients.Where(x => x.ClientName.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
+                ((AutoSuggestBox)sender).ItemsSource = clients.Where(x => x.name.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
                 ((AutoSuggestBox)sender).DisplayMemberPath = "ClientName";
 
             }
@@ -89,9 +90,10 @@ namespace Pos.View
 
         }
 
-        private void TbAdd_Clicked(object sender, EventArgs e)
+        private async void TbAdd_Clicked(object sender, EventArgs e)
         {
-
+            await  Navigation.PushAsync(new SelectClient());
+        
         }
 
         private void TbEdit_Clicked(object sender, EventArgs e)

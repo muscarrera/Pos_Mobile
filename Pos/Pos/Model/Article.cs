@@ -10,31 +10,61 @@ namespace Pos.Model
 {
    public class Article
     {
-        [PrimaryKey, AutoIncrement]
-        public int Arid { get; set; }
-        public string  Cid { get; set; }
+        [PrimaryKey]
+        public int arid { get; set; }
+        public int  cid { get; set; }
         [MaxLength(250)]
-        public string ArtName { get; set; }
+        public string name { get; set; }
         [MaxLength(250)] 
-        public string ArtRef { get; set; }
+        public string @ref { get; set; }
         [MaxLength(250)]
-        public string Unit { get; set; }
-        public double Price { get; set; }
-        [MaxLength(250)] 
-        public string ImgName { get; set; }
+        public string code { get; set; }
+        [MaxLength(250)]
+        public double bprice { get; set; }
+        public double sprice { get; set; }
+        public double tva { get; set; }
+        public double prixPromo { get; set; }
+        public double priceGF { get; set; }
+        public double priceGR { get; set; }
+        public double commGR { get; set; }
+        public double cmmDT { get; set; }
+        [MaxLength(250)]
+        public string stockType { get; set; }
+        public double alertStock { get; set; }
+        [MaxLength(250)]
+        public string periode { get; set; }
+        public int depot { get; set; }
+        public Boolean  isPromo { get; set; }
+        public Boolean  isStocked { get; set; }
 
-       [Ignore]
-        public string ImagePath
+        [MaxLength(250)] 
+        public string img { get; set; }
+        public double CUMP { get; set; }
+        public double poid { get; set; }
+
+
+
+        //[Ignore]
+       
+        public ImageSource ImagePath
         {
-            get { return Path.Combine(App.imgPath, ImgName); }
-        }
+          get { 
+        //        if (img != null)
+        //        {
+        //            byte[] b = img;
+        //            Stream ms = new MemoryStream(b);
+                   
+        //            return ImageSource.FromStream(() => ms);
+        //        }
+               return null;
+           }
+         }
 
         [Ignore]
         public string PriceText
         {
-            get { return string.Format("{0:F2} Dh/" + Unit, Price); }
+            get { return string.Format("{0:F2} Dh/" + "U", sprice ); }
         }
-
 
         public static bool AddNew(Article art)
         {

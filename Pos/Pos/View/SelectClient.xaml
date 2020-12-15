@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:Pos.Helpers"
+             x:Class="Pos.View.SelectClient">
+
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" >
+            <Button HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Text="Choisir" TextColor="White" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbAdd_Clicked" />
+             </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="red" Margin="20,10" HeightRequest="160">
+                
+            </StackLayout>
+            <Frame Margin="20,10" Padding="0,10" HeightRequest="100" BorderColor="#e7e7e7">
+                <Grid>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button HeightRequest="50" WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.SearchWeb},
+                            Size=30,Color=Gray}"/>
+                    <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" FontSize="14"/>
+                    <Button Grid.Column="2" x:Name="BtClearText" HeightRequest="30" WidthRequest="40" IsVisible="False" BackgroundColor="White" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Delete},
+                             Size=20,Color=red}"
+                                Clicked="BtClearText_Clicked"/>
+                </Grid>
+            </Frame>
+
+            <ListView x:Name="lsClient" ItemSelected="lsClient_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ImageCell  TextColor="Purple"
+                            Text="{Binding name}" 
+                            Detail="{Binding adresse}"
+                            ImageSource="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.AccountBox}, Size=25,Color=#e7e7e7}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

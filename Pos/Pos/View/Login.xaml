@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="Pos.View.Login"
+               xmlns:helpers="clr-namespace:Pos.Helpers" 
+                  NavigationPage.HasNavigationBar="False">
+
+
+    <Grid BackgroundColor="Purple">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Image BackgroundColor="Purple" x:Name="Img" HeightRequest="200" Aspect="AspectFill"/>
+
+            <StackLayout Padding="25" Grid.Row="1" Margin="0,-90,0,0">
+            <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15"  Margin="10,0"  Padding="15" 
+                                                   HorizontalOptions="FillAndExpand" BackgroundColor="white">
+
+                <StackLayout VerticalOptions="Center" >
+
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" >
+                        <StackLayout>
+                            <Label Text="Utilisateur"/>
+                            <Entry x:Name="TxtUser" />
+                        </StackLayout>
+                    </pv:PancakeView>
+
+                    <pv:PancakeView CornerRadius="5" Padding="10,2"  >
+                        <StackLayout>
+                            <Label Text="Pass.."/>
+                            <Entry x:Name="TxtPass" />
+                        </StackLayout>
+                    </pv:PancakeView>
+
+                    <pv:PancakeView CornerRadius="5" Padding="2"  BackgroundColor="ForestGreen"  >
+                        <Button HorizontalOptions="CenterAndExpand"  BackgroundColor="Transparent" Text="Valider"
+                                TextColor="White" Padding="40,5" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.ContentSave}, Size=25,Color=White}"
+                               Clicked="Button_Clicked"/>
+                    </pv:PancakeView>
+                </StackLayout>
+            </pv:PancakeView>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="Center" Grid.Row="2"  x:Name="plArt"  Padding="20,10" IsVisible="false">
+
+            <pv:PancakeView CornerRadius="5" Padding="10,2" BackgroundColor="White">
+                <StackLayout  HeightRequest="40">
+                    <ActivityIndicator x:Name="ArtIndic" IsRunning="true" VerticalOptions="CenterAndExpand"  />
+                    <Label Text="Articles ..."  x:Name="lbArticle" VerticalOptions="CenterAndExpand"  />
+                    </StackLayout>
+            </pv:PancakeView>
+        </StackLayout>
+
+        <StackLayout VerticalOptions="Center" x:Name="plWifi" Grid.Row="4"  HeightRequest="20" Padding="20,10" BackgroundColor="Orange">
+         <Label Text="Test Connection " x:Name="lbWifi"  VerticalOptions="CenterAndExpand"  />
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>

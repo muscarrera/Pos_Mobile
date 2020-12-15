@@ -1,10 +1,12 @@
 ﻿using Java.Nio.Channels;
 using Java.Sql;
+using Newtonsoft.Json;
 using Pos.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -43,11 +45,10 @@ namespace Pos.View
         public DataList(Facture fct)
         {
             InitializeComponent();
-            fctId = fct.Fid;
+            fctId = fct.id;
             facture=fct;
          }
 
-      
         private void GoBack(object sender, EventArgs e)
         {
             Navigation.PopAsync();
@@ -58,7 +59,7 @@ namespace Pos.View
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
                 con.CreateTable<Product>();
-                return con.Table<Product>().Where(x => x.Fid == this.fctId).Select(x => x).ToList();
+                return con.Table<Product>().Where(x => x.fctid == this.fctId).Select(x => x).ToList();
             }
         }
 
@@ -67,7 +68,7 @@ namespace Pos.View
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
                 con.CreateTable<Product>();
-                return con.Table<Product>().Where(x => x.Fid == this.fctId).Select(x => x).ToList();
+                return con.Table<Product>().Where(x => x.fctid == this.fctId).Select(x => x).ToList();
             }
         }
 
@@ -80,15 +81,50 @@ namespace Pos.View
             BindableLayout.SetItemsSource(CVPrd, products);
 
             lbId.Text = fctId.ToString();
-            lbDate.Text = facture.FctDate.ToString("g");
-            lbName.Text = facture.ClientName;
+            lbDate.Text = facture.date.ToString("dd/MM/yyyy e\\n HH:mm");
+            lbName.Text = facture.name;
             
         }
 
- 
+
+
+        public async Task SaveCommandAsync()
+        {
+            HttpClient client;
+            client = new HttpClient();
+
+             facture.items= products;
+                                                                                                                                                                                      
+            string json = JsonConvert.SerializeObject(facture);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            if (facture.Commande_Client == "0" ) // is new
+            {
+                response = await client.PostAsync($"{App.uriAPI}/api/fct/gr/{facture.Commande_Client}", content);
+            }
+            
+             if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert(@"\tTodoItem successfully saved.","","ok");
+                facture.Commande_Client = response.Content.ToString();
+                Facture.Edit(facture);
+            }
+            }
+
+
+
         private async void Go_Back(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            if (facture.modePayement=="")
+            {
+
+
+                return;
+            }
+
+            await SaveCommandAsync();
+            await Navigation.PushAsync(new Factures());
         }
 
         private async void Edite_Invoked(object sender, EventArgs e)
@@ -103,7 +139,7 @@ namespace Pos.View
             var pr = ((SwipeItem)sender).BindingContext as Product;
 
             string str = "Voulez vous suprimer : " + Environment.NewLine;
-            str += pr.Qte.ToString() + " (" + pr.Unit + " )" + pr.ArtName; 
+            str += pr.qte.ToString() + " (" + pr.unit + " )" + pr.name; 
             bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
             if (answer)
@@ -118,6 +154,16 @@ namespace Pos.View
 
             }
          }
+         
+        private void ChangeClient_Click(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SelectClient(facture));
+        }
+         private void Button_Clicked(object sender, EventArgs e)
+        {
+            var md = new SelectModePayement(facture.cid);
 
+            Navigation.PushModalAsync(md);
+        }
     }
 }

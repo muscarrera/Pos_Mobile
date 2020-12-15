@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:helpers="clr-namespace:Pos.Helpers"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             mc:Ignorable="d" xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              x:Class="Pos.MainPage"  NavigationPage.HasNavigationBar="false"
              >
 
@@ -14,7 +16,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" CornerRadius="0,0,40,40" HasShadow="True" BackgroundColor="white">
+        <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" CornerRadius="0,0,40,40" 
+                        BackgroundColor="white" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
             <Grid  Margin="0,15,0,0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -48,7 +51,7 @@
                     <StackLayout x:Name="StCat"  Orientation="Horizontal" Spacing="10" Margin="10,0">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                             <pv:PancakeView CornerRadius="10" Margin="5,10,0,10" HasShadow="True" BackgroundColor="White">
+                                <pv:PancakeView CornerRadius="10" Margin="5,10,0,10" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" BackgroundColor="White">
                                  
                                  <VisualStateManager.VisualStateGroups>
                                         <VisualStateGroup Name="SelectedStates">
@@ -70,7 +73,7 @@
                                                         </pv:GradientStopCollection>
                                                     </Setter.Value>
                                                     </Setter>
-                                                    <Setter  Property="BackgroundGradientAngle" Value="270"/>
+                                                    
                                              </VisualState.Setters>
                                             </VisualState>
                                             
@@ -80,7 +83,7 @@
                                  <pv:PancakeView.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="ListCounter_Tapped"/>
                                     </pv:PancakeView.GestureRecognizers>
-                                    <Label Padding="20,5" Text="{Binding catName}">
+                                    <Label Padding="20,5" Text="{Binding name}">
                                         <VisualStateManager.VisualStateGroups>
                                             <VisualStateGroup Name="SelectedStates">
 
@@ -113,25 +116,27 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Padding="2" HorizontalOptions="Fill" VerticalOptions="Fill">
-                                <pv:PancakeView CornerRadius="5" Margin="5" Padding="0" HasShadow="True" BackgroundColor="White">
+                                    <pv:PancakeView  Shadow="{pv:ShadowMarkup Color=WhiteSmoke, Offset='10,10'}" CornerRadius="5" Margin="5" Padding="0" BackgroundColor="White">
                                 <Grid >
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                            <Image HeightRequest="80" Source="{Binding ImgName}" Aspect="AspectFill">
+                                            <Image HeightRequest="60" 
+                                                   Source="{FontImage FontFamily=AwesomeFont,
+                                                        Glyph={x:Static helpers:IconFont.Shopping }, Size=30,Color=WhiteSmoke }">
                                             </Image>
-                                    <Button  HeightRequest="10" WidthRequest="10" BackgroundColor="Transparent" BorderWidth="0"
+                                    <Button  HeightRequest="10" WidthRequest="10" BackgroundColor="WhiteSmoke" BorderWidth="0"
                                              HorizontalOptions="End" Margin="10" VerticalOptions="Start"
                                             ImageSource="{FontImage FontFamily=AwesomeFont,
-                                            Glyph={x:Static helpers:IconFont.BookmarkPlus}, Size=22,Color=White}" Clicked="Button_Clicked"/>
+                                            Glyph={x:Static helpers:IconFont.BookmarkPlus}, Size=22,Color=WhiteSmoke}" Clicked="Button_Clicked"/>
 
-                                        <pv:PancakeView CornerRadius="5" Opacity="0.7" HasShadow="True" BackgroundColor="Black" Margin="2" VerticalOptions="End" HorizontalOptions="End" >
+                                            <pv:PancakeView CornerRadius="5" Opacity="0.7"  BackgroundColor="Black" Margin="2" VerticalOptions="End" HorizontalOptions="End" >
                                             <Label Text="{Binding PriceText}" Margin="10,0" TextColor="red" FontSize="9" FontAttributes="Bold" />
                                         </pv:PancakeView>
-                                    
-                                        <StackLayout Orientation="Horizontal" Grid.Row="1" Margin="10,-8,10,10">
-                                                <Label Text="{Binding ArtName}" FontSize="12" HorizontalOptions="FillAndExpand"/>
+
+                                            <StackLayout Orientation="Horizontal" Grid.Row="1" Margin="10,-8,10,10"  >
+                                                <Label Text="{Binding name}" FontSize="12"  FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
                                         </StackLayout>
                                 </Grid>
                                 </pv:PancakeView>
@@ -148,14 +153,15 @@
                 <StackLayout x:Name="CVPrd"  Orientation="Horizontal" Spacing="15" Margin="10,0" BindableLayout.ItemsSource="{Binding ProductList}">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <pv:PancakeView CornerRadius="10" Margin="5,5,0,5" HasShadow="True" BackgroundColor="White">
+                            <pv:PancakeView CornerRadius="10" Margin="5,5,0,5"  BackgroundColor="White">
                                    <pv:PancakeView.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="EditProduct_Buttom"/>
                                 </pv:PancakeView.GestureRecognizers>
                                 <StackLayout>
-                                    <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="50" HeightRequest="50" Source="{Binding ImgName}" Aspect="AspectFill"/>
-                                    <pv:PancakeView CornerRadius="5" Margin="2,-20,2,2" Opacity="0.7" HasShadow="True" BackgroundColor="Black"   VerticalOptions="Start" HorizontalOptions="Center" >
-                                        <Label Text="{Binding Qte}" Margin="6,0" TextColor="red" FontSize="9" FontAttributes="Bold" />
+                                    <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="50" HeightRequest="50" Source="{FontImage FontFamily=AwesomeFont,
+                                                        Glyph={x:Static helpers:IconFont.Shopping }, Size=11,Color=WhiteSmoke }"/>
+                                    <pv:PancakeView CornerRadius="5" Margin="2,-20,2,2" Opacity="0.7" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" BackgroundColor="Black"   VerticalOptions="Start" HorizontalOptions="Center" >
+                                        <Label Text="{Binding qte}" Margin="6,-2" TextColor="red" FontSize="12" FontAttributes="Bold" />
                                     </pv:PancakeView>
                                 </StackLayout>
                             </pv:PancakeView>
@@ -163,8 +169,8 @@
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
             </ScrollView>
-            
-            <pv:PancakeView CornerRadius="10" Margin="10,5" HasShadow="True" BackgroundColor="white"   WidthRequest="50"  >
+
+            <pv:PancakeView CornerRadius="10" Margin="10,5" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" BackgroundColor="Yellow"   WidthRequest="50"  >
                 <pv:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="GoTo_List"/>
                 </pv:PancakeView.GestureRecognizers>

@@ -8,19 +8,17 @@
 
    
         <StackLayout Padding="25" >
-            <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15" HasShadow="True" Margin="10,0"  Padding="15" 
-                            BorderColor="ForestGreen" BorderThickness="2" BorderIsDashed="True"
-                        HorizontalOptions="FillAndExpand" BackgroundColor="white">
+            <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15"   Margin="10,0"  Padding="15" 
+                             HorizontalOptions="FillAndExpand" BackgroundColor="white">
                 <StackLayout>
-                    <pv:PancakeView CornerRadius="5" Padding="10,2" Margin="0,15" HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" Margin="0,15" >
                     <StackLayout>
                         <Label Text="Designation"/>
                         <Entry x:Name="TxtName" />
                     </StackLayout>
                 </pv:PancakeView>
 
-                <pv:PancakeView CornerRadius="5" Padding="2" Margin="0,15" BackgroundColor="ForestGreen" BorderColor="White"  
-                                    HasShadow="True" BorderThickness="1">
+                <pv:PancakeView CornerRadius="5" Padding="2" Margin="0,15" BackgroundColor="ForestGreen" >
                     <Button HorizontalOptions="CenterAndExpand"  BackgroundColor="Transparent" Text="Valider" TextColor="White" Padding="40,5" ImageSource ="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.ContentSave}, Size=25,Color=White}"
                                 Clicked="Button_Clicked"/>

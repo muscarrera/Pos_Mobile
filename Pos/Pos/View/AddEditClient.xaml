@@ -11,25 +11,38 @@
         <StackLayout>
 
             <pv:PancakeView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="20"
-                            HasShadow="True" Margin="15" Padding="25" BackgroundColor="White">
+                           Margin="15" Padding="25" BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
 
                 <StackLayout>
-                    <pv:PancakeView CornerRadius="5" Padding="10,2" HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
             <StackLayout>
                   <Label Text="Nom"/>
                     <Entry x:Name="txtName" />
                   </StackLayout>
              </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="10,2" HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                         <StackLayout>
-                            <Label Text="Info"/>
-                            <Entry x:Name="txtInfo" />
+                            <Label Text="Tél"/>
+                            <Entry x:Name="txtTel" />
                         </StackLayout>
                     </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="2"  BackgroundColor="ForestGreen" BorderColor="White"  
-                                    HasShadow="True" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" Shadow="{pv:ShadowMarkup Color=#000000, Offset='10,10'}">
+                        <StackLayout>
+                            <Label Text="Adresse"/>
+                            <Entry x:Name="txtAdresse" />
+                        </StackLayout>
+                    </pv:PancakeView>
+                    
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" Shadow="{pv:ShadowMarkup Color=#000000, Offset='10,10'}">
+                        <StackLayout>
+                            <Label Text="Ville"/>
+                            <Entry x:Name="txtVille" />
+                        </StackLayout>
+                    </pv:PancakeView>
+                    
+                    <pv:PancakeView CornerRadius="5" Padding="2"  BackgroundColor="ForestGreen" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                         <Button HorizontalOptions="CenterAndExpand"  BackgroundColor="Transparent" Text="Valider" TextColor="White" Padding="40,5" ImageSource ="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.ContentSave}, Size=25,Color=White}"
                                 Clicked="Button_Clicked"/>

@@ -48,30 +48,9 @@ namespace Pos.View
 
         private void GoToAddFacture(object sender, EventArgs e)
         {
-
-            Facture fct = new Facture() { 
-            Clid =0,
-            ClientName="Client",
-            FctDate= DateTime.Now,
-            Total=0,
-            Avance=0
-            };
-
-            using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
-            {
-                con.CreateTable<Facture>();
-                int i = con.Insert(fct);
-
-                if (i > 0)
-                {
-                    Facture ft = con.Table<Facture>().Last();
-                    Detail = new NavigationPage(new MainPage(ft));
-                    IsPresented = false;
-                }
-                                  
-            }
-
-          }
+            Detail = new NavigationPage(new SelectClient());
+            IsPresented = false;
+        }
 
         private void GoToFactures(object sender, EventArgs e)
         {

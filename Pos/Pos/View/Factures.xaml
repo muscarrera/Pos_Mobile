@@ -52,13 +52,13 @@
                                     <StackLayout Orientation="Horizontal">
                                         <StackLayout  Padding="5" HorizontalOptions="FillAndExpand">
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding ClientName}"   HorizontalOptions="FillAndExpand" 
+                                            <Label Text="{Binding name}"   HorizontalOptions="FillAndExpand" 
                                                     FontSize="15" FontAttributes="Bold" TextColor="Purple" />
-                                                <Label Text="{Binding FctDate}"   HorizontalOptions="EndAndExpand" FontAttributes="Italic" 
+                                                <Label Text="{Binding date}"   HorizontalOptions="EndAndExpand" FontAttributes="Italic" 
                                                      FontSize="12"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Fid}"  FontSize="13"/>
+                                            <Label Text="{Binding id}"  FontSize="13"/>
                                             <Label Text="{Binding Total}"   HorizontalOptions="EndAndExpand" FontAttributes="Bold" 
                                                      FontSize="13"/>
                                         </StackLayout>

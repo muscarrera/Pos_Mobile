@@ -52,7 +52,7 @@ namespace Pos
               Article pr = lsArt.SelectedItem as Article;
 
                 string str = "Voulez vous suprimer : " + Environment.NewLine;
-                str += pr.ArtName+ " (" + pr.ArtRef + " )" ;
+                str += pr.name+ " (" + pr.@ref + " )" ;
                 bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
                 if (answer)
@@ -77,7 +77,7 @@ namespace Pos
             {
                 //Set the ItemsSource to be your filtered dataset
 
-                ((AutoSuggestBox)sender).ItemsSource = articleList.Where(x => x.ArtName.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
+                ((AutoSuggestBox)sender).ItemsSource = articleList.Where(x => x.name.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
                 ((AutoSuggestBox)sender).DisplayMemberPath = "ArtName";
 
             }
@@ -120,7 +120,7 @@ namespace Pos
                 var pr = (sender as SwipeItem).BindingContext as Article;
 
                 string str = "Voulez vous suprimer : " + Environment.NewLine;
-                str += pr.ArtName + " (" + pr.ArtRef + " )";
+                str += pr.name + " (" + pr.@ref + " )";
                 bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
                 if (answer)

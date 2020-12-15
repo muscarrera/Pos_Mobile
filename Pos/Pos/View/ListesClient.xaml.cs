@@ -85,7 +85,7 @@ namespace Pos.View
                 Client pr = lsClient.SelectedItem as Client;
 
                 string str = "Voulez vous suprimer : " + Environment.NewLine;
-                str += pr.ClientName ;
+                str += pr.name ;
                 bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
                 if (answer)
@@ -127,7 +127,7 @@ namespace Pos.View
 
 
             var lst = clienteList
-                .Where(x => x.ClientName.Contains(TxtSearch.Text))
+                .Where(x => x.name.Contains(TxtSearch.Text))
                 .Select(x => x).ToList();
 
             lsClient.ItemsSource = lst;
@@ -140,7 +140,7 @@ namespace Pos.View
 
         private async void lsClient_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (fct.Fid == 0 || EditMode ==false)
+            if (fct.id == 0 || EditMode ==false)
                 return;
 
             var ct = lsClient.SelectedItem as Client;
@@ -148,8 +148,8 @@ namespace Pos.View
             if (ct == null)
                 return;
 
-            fct.Clid = ct.Clid;
-            fct.ClientName = ct.ClientName;
+            fct.cid = ct.Clid;
+            fct.name = ct.name;
 
            Facture.Edit(fct);
            await Navigation.PopAsync();

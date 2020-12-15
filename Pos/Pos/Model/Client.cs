@@ -7,14 +7,42 @@ namespace Pos.Model
 {
    public  class Client
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
          public int Clid { get; set; }
         [MaxLength(250)]
-        public string ClientName { get; set; }
+        public string name { get; set; }
         [MaxLength(250)]
-        public string Info { get; set; }
-
-
+        public string @ref { get; set; }
+        [MaxLength(250)]
+        public string groupe { get; set; }
+        public bool isCompany { get; set; }
+        [MaxLength(250)]
+        public string adresse { get; set; }
+        [MaxLength(250)]
+        public string cp { get; set; }
+        [MaxLength(250)]
+        public string ville { get; set; }
+        [MaxLength(250)]
+        public string ice { get; set; }
+        [MaxLength(250)]
+        public string tel { get; set; }
+        [MaxLength(250)]
+        public string gsm { get; set; }
+        [MaxLength(250)]
+        public string email { get; set; }
+        [MaxLength(250)]
+        public string info { get; set; }
+        [MaxLength(250)]
+        public string img { get; set; }
+        [MaxLength(250)]
+        public string responsable { get; set; }
+        public decimal  porte_Monie { get; set; }
+        public bool isBlocked { get; set; }
+        [MaxLength(250)]
+        public string ModePayement { get; set; }
+        public decimal plafond { get; set; }
+        
+       
         public static bool AddNew(Client art)
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))

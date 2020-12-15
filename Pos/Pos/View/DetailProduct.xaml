@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" Padding="0"
-                        CornerRadius="250" HasShadow="True" WidthRequest="200" HeightRequest="200" 
+                        CornerRadius="250"  WidthRequest="200" HeightRequest="200" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}"
                         HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
             <StackLayout>
                 <Image  sharedTransitions:Transition.Name="ProductImage"
@@ -32,7 +32,7 @@
         </StackLayout>
 
         <pv:PancakeView Grid.Row="2" Padding="0"
-                        CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="200" HeightRequest="40" 
+                        CornerRadius="250" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" WidthRequest="200" HeightRequest="40" 
                         HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
             <StackLayout Orientation="Horizontal">
                 <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
@@ -47,7 +47,8 @@
             </StackLayout>
         </pv:PancakeView>
 
-        <pv:PancakeView Grid.Row="3"  Padding="0" CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="200" HeightRequest="40" 
+        <pv:PancakeView Grid.Row="3"  Padding="0" CornerRadius="250" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}"
+                        WidthRequest="200" HeightRequest="40" 
                         HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
             <StackLayout Orientation="Horizontal">
 
@@ -62,7 +63,7 @@
 
         <StackLayout Grid.Row="4" VerticalOptions="FillAndExpand">
 
-            <pv:PancakeView  Padding="0"  CornerRadius="250" HasShadow="True" BorderColor="Purple" BorderThickness="1" WidthRequest="300" HeightRequest="60" 
+            <pv:PancakeView  Padding="0"  CornerRadius="250" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}" WidthRequest="300" HeightRequest="60" 
                         HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
 
                 <Button VerticalOptions="FillAndExpand" Text="Valider" FontSize="20" TextColor="White" BackgroundColor="Purple" Padding="70,10" BorderWidth="0"

@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" CornerRadius="0,0,40,40"
-                        HasShadow="True" BackgroundColor="White">
+                        BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
             
             <StackLayout Orientation="Horizontal" HeightRequest="80">
                 <Button HeightRequest="30" WidthRequest="40" Margin="5,10" BackgroundColor="Transparent" BorderWidth="0"
@@ -24,7 +24,7 @@
                 <StackLayout HorizontalOptions="FillAndExpand">
                                     
             <Button HeightRequest="30" WidthRequest="40" Margin="0,10" BackgroundColor="Transparent" BorderWidth="0"
-                            ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Padding="3" Clicked="ChangeClient_Click" ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Account}, Size=25,Color=#707070}"/>
                     <Label  x:Name="lbName" Text="{Binding ClientName}" HorizontalTextAlignment="Center" TextColor="Purple" Margin="0,-15,0,0" FontAttributes="Bold"/>
                 </StackLayout>
@@ -39,7 +39,7 @@
                     <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent"  Margin="0,10" BorderWidth="0"
                             ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=#707070}"/>
-                    <Label  x:Name="lbDate" Text="{Binding FctDate}" HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold"/>
+                    <Label  x:Name="lbDate" Text="{Binding FctDate, StringFormat=dd-MMMM-yy hh:mm}" HorizontalTextAlignment="Center" TextColor="#707070" Margin="0,-15,0,0" FontAttributes="Bold"/>
                 </StackLayout>
             </StackLayout>
         </pv:PancakeView>
@@ -50,7 +50,7 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
 
-                            <pv:PancakeView  CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                            <pv:PancakeView  CornerRadius="10"   BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                             <SwipeView>
                     <SwipeView.LeftItems>
                         <SwipeItems>
@@ -73,12 +73,13 @@
                     <!-- Content -->
                                 <StackLayout Padding="6"  Orientation="Horizontal" HeightRequest="60" WidthRequest="300" BackgroundColor="#F1F2F2">
 
-                        <pv:PancakeView CornerRadius="10"  Opacity="0.7" HasShadow="True" BackgroundColor="Black"   VerticalOptions="FillAndExpand"   >
-                            <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="60" HeightRequest="60" Source="{Binding ImgName}" Aspect="AspectFill"/>
+                        <pv:PancakeView CornerRadius="10"  Opacity="0.7" BackgroundColor="Black"   VerticalOptions="FillAndExpand"   >
+                                            <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="60" HeightRequest="60" Source="{FontImage FontFamily=AwesomeFont,
+                                                        Glyph={x:Static helpers:IconFont.Shopping }, Size=20,Color=WhiteSmoke }"  />
                         </pv:PancakeView>
 
                         <StackLayout  Padding="5" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding ArtName}"   HorizontalOptions="FillAndExpand" 
+                            <Label Text="{Binding name}"   HorizontalOptions="FillAndExpand" 
                                    FontSize="15" FontAttributes="Bold"/>
                             <Label Text="{Binding PriceText}"   HorizontalOptions="FillAndExpand" 
                    TextColor="Purple"  FontSize="13"/>
@@ -107,7 +108,7 @@
         <StackLayout Orientation="Horizontal" Grid.Row="3">
 
             <pv:PancakeView   CornerRadius="15" Margin="15,10,0,10"
-                        HasShadow="True" BackgroundColor="White" BorderColor="#7d7d7d" BorderThickness="1">
+                      BackgroundColor="White"   >
                 <Button  BackgroundColor="Transparent" TextColor="Purple"  WidthRequest="50"
                             HorizontalOptions="FillAndExpand" BorderWidth="0" 
                             Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
@@ -115,15 +116,15 @@
             </pv:PancakeView>
             
             <pv:PancakeView   CornerRadius="15" HorizontalOptions="Start"  Margin="0,10"
-                        HasShadow="True" BackgroundColor="White" BorderColor="Purple" BorderThickness="1">
+                        BackgroundColor="White" >
                    <Button  BackgroundColor="Transparent" TextColor="Purple" Padding="15,10" VerticalOptions="FillAndExpand" 
-                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="    Soler"
-                            Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            HorizontalOptions="FillAndExpand" BorderWidth="0" Text="   MD PMNT" Clicked="Button_Clicked"
+                           ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=Gold}"/>
             </pv:PancakeView>
 
             <pv:PancakeView   CornerRadius="15" HorizontalOptions="FillAndExpand"  Margin="0,10,-20,10"
-                        HasShadow="True" BackgroundColor="Purple" BorderColor="Purple" BorderThickness="1">
+                      BackgroundColor="Purple" >
                 <Button  BackgroundColor="Transparent" TextColor="White" FontSize="20"  Padding="15,10" VerticalOptions="FillAndExpand" 
                             HorizontalOptions="FillAndExpand" BorderWidth="0" Text="Enregistrer"
                          

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d" NavigationPage.HasNavigationBar="False" xmlns:helpers="clr-namespace:Pos.Helpers"
              x:Class="Pos.View.AddEditArticles">
     
@@ -25,31 +26,30 @@
         </pv:PancakeView>
 
         <StackLayout Padding="25" Grid.Row="1" BindingContext="{Binding article}" Margin="0,-90,0,0">
-            <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15" HasShadow="True" Margin="10,0"  Padding="15" 
-                            BorderColor="ForestGreen" BorderThickness="2" BorderIsDashed="True"
-                        HorizontalOptions="FillAndExpand" BackgroundColor="white">
+            <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15"  Margin="10,0"  Padding="15" 
+                                                   HorizontalOptions="FillAndExpand" BackgroundColor="white">
                 
                 <StackLayout VerticalOptions="Center" >
                    
-                    <pv:PancakeView CornerRadius="5" Padding="10,2" HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2" >
                         <StackLayout>
                             <Label Text="Designation"/>
                             <Entry x:Name="TxtName" />
                         </StackLayout>
                     </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="10,2"  HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2"  >
                         <StackLayout>
                             <Label Text="Ref.."/>
                             <Entry x:Name="TxtRef" />
                         </StackLayout>
                     </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="10,2" HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2"  >
                          <Picker x:Name="CatPicker" ItemDisplayBinding="{Binding catName}" Title="Groupes"/>
                      </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="10,2"  HasShadow="False" BorderColor="Gray" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="10,2"  >
                         <StackLayout Orientation="Horizontal">
                             <StackLayout HorizontalOptions="FillAndExpand" Margin="0,0,15,0">
                                 <Label Text="Prix.."/>
@@ -62,8 +62,7 @@
                         </StackLayout>
                     </pv:PancakeView>
 
-                    <pv:PancakeView CornerRadius="5" Padding="2"  BackgroundColor="ForestGreen" BorderColor="White"  
-                                    HasShadow="True" BorderThickness="1">
+                    <pv:PancakeView CornerRadius="5" Padding="2"  BackgroundColor="ForestGreen"  >
                         <Button HorizontalOptions="CenterAndExpand"  BackgroundColor="Transparent" Text="Valider" TextColor="White" Padding="40,5" ImageSource ="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.ContentSave}, Size=25,Color=White}"
                                 Clicked="Button_Clicked"/>

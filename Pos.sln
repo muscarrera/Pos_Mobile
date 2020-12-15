@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.Android", "Pos\Pos.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.iOS", "Pos\Pos.iOS\Pos.iOS.csproj", "{C9B82907-F334-418C-AD0B-3D71086DE337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos", "Pos\Pos\Pos.csproj", "{7A42B2FC-6BCD-4BC8-94F0-3AA8336C3999}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pos", "Pos\Pos\Pos.csproj", "{7A42B2FC-6BCD-4BC8-94F0-3AA8336C3999}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,10 @@ using Pos.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+
+using System.Drawing;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -32,23 +35,25 @@ namespace Pos.View
             cats= new List<Category>(GetListOfCat());
             article = ar;
 
-            TxtName.Text=article.ArtName ; 
-            TxtRef.Text=article.ArtRef  ;
-            TxtUnit.Text = article.Unit;
-            TxtPrix.Text = article.Price.ToString();
-            CatPicker.SelectedItem = cats.Where(x => x.catName == article.Cid).Select(x => x).FirstOrDefault();
-            Img.Source = ImageSource.FromFile(article.ImgName);
+            TxtName.Text=article.name ; 
+            TxtRef.Text=article.@ref  ;
+            TxtUnit.Text = "u";
+            TxtPrix.Text = article.sprice .ToString();
+            CatPicker.SelectedItem = cats.Where(x => x.cid == article.cid).Select(x => x).FirstOrDefault();
+            Img.Source = article.ImagePath ;
         }
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            article.ArtName = TxtName.Text;
-            article.ArtRef = TxtRef.Text;
-            article.Unit = TxtUnit.Text;
-            article.Price = double.Parse(TxtPrix.Text);
-            article.Cid = (string)(CatPicker.SelectedItem as Category).catName;
+            article.name = TxtName.Text;
+            article.@ref = TxtRef.Text;
+            //article.Unit = TxtUnit.Text;
+            article.sprice = double.Parse(TxtPrix.Text);
+            article.cid = (int)(CatPicker.SelectedItem as Category).cid;
 
             await App.articleData.SaveArticleAsync(article);
-            await Navigation.PopAsync();
+            //  await Navigation.PopAsync();
+            //Detail = new NavigationPage(new AddEditArticles());
+            //IsPresented = false;
         }
 
         private List<Category> GetListOfCat()
@@ -76,11 +81,44 @@ namespace Pos.View
             };
 
             var selectedImage = await CrossMedia.Current.PickPhotoAsync(mediaOption);
-            Img.Source = ImageSource.FromStream(() => selectedImage.GetStream());
-           // string imgName = selectedImage.Path.Split('/').Last();
-            article.ImgName = selectedImage.Path;
+           Img.Source = ImageSource.FromStream(() => selectedImage.GetStream());
+           string imgName = selectedImage.Path.Split('/').Last();
+                        
+            article.img = imgName;
+
+
+
+
+            //article.img = GetImageBytes(selectedImage.GetStream()) ;
+
+            Img.Source = article.ImagePath;
 
         }
+
+        private byte[] GetImageBytes(Stream stream)
+        {
+            try
+            {
+            byte[] ImageBytes;
+            using (var memoryStream = new System.IO.MemoryStream())
+            {
+                BinaryReader br = new BinaryReader(stream);
+                ImageBytes = br.ReadBytes((int)stream.Length);
+
+                var ms = new MemoryStream();
+                ms.CopyTo(memoryStream);
+                ImageBytes = memoryStream.ToArray();
+            }
+            return ImageBytes;
+            }
+            catch (Exception)
+            {
+                return null;
+               
+            }
+          }
+
+
         private async void TakeImage(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
@@ -97,15 +135,19 @@ namespace Pos.View
                 SaveToAlbum = true,
               
             });
-               
+
 
             Img.Source = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
                 return stream;
             });
-             article.ImgName = file.AlbumPath;
-                   }
+
+            //article.img = GetImageBytes(file.GetStream());
+
+            //Img.Source = article.ImagePath;
+
+          }
 
       }
 }

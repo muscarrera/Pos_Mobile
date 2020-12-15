@@ -9,15 +9,42 @@ namespace Pos.Model
     public class Facture
     {
         [PrimaryKey, AutoIncrement]
-        public int Fid { get; set; }
-        public int Clid { get; set; }
+        public int id { get; set; }
+        public int cid { get; set; }
+        public int commercialID { get; set; }
+        public int compteId { get; set; }
+        public int pj { get; set; }
         [MaxLength(250)]
-        public string ClientName { get; set; }
-        public DateTime FctDate { get; set; }
+        public string name { get; set; }
+        [MaxLength(250)]
+        public string writer { get; set; }
+        public DateTime date { get; set; }
         public double Total { get; set; }
         public double Avance { get; set; }
+        public double tva { get; set; }
+        public double remise { get; set; }
+        [MaxLength(250)]
+        public string isAdmin { get; set; }
+        public bool isValid { get; set; }
+        public int droitTimbre { get; set; }
+        [MaxLength(250)]
+        public string modePayement { get; set; }
+
+        [MaxLength(250)]
+        public string driver { get; set; }
+        [MaxLength(250)]
+        public string Devis { get; set; }
+        [MaxLength(250)]
+        public string Commande_Client { get; set; }
+        [MaxLength(250)]
+        public string Bon_Commande { get; set; }
+        [MaxLength(250)]
+        public string Bon_Livraison { get; set; }
+        
         [Ignore]
         public bool IsPayed  {   get => Avance >= Total;  }
+        [Ignore]
+        public List<Product> items { get; set; }
 
 
 

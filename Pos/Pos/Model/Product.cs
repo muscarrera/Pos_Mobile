@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Pos.Model
 {
@@ -10,55 +11,78 @@ namespace Pos.Model
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int Arid { get; set; }
-        public int Fid { get; set; }
-        public string Cid { get; set; }
+        public int? arid { get; set; }
+        public int fctid { get; set; }
+        public int cid { get; set; }
         [MaxLength(250)]
-        public string ArtName { get; set; }
+        public string name { get; set; }
         [MaxLength(250)]
-        public string ArtRef { get; set; }
+        public string @ref { get; set; }
+        public double price { get; set; }
+        public double bprice { get; set; }
+        public double remise { get; set; }
+        public double qte { get; set; }
+        public double commession { get; set; }
+        public double tva { get; set; }
+        public double poid { get; set; }
+        public int depot { get; set; }
+
         [MaxLength(250)]
-        public string Unit { get; set; }
+        public string unit { get; set; }
         [MaxLength(250)]
         public string ImgName { get; set; }
-        public double Price { get; set; }
-        public double Qte { get; set; }
-     
 
-        [Ignore]
-        public string ImagePath
-        {
-            get { return Path.Combine(App.dbPath, ImgName); }
-        }
+
         [Ignore]
         public string PriceText
         {
-            get { return string.Format("{0} ({1})  x  {2:F2} Dh",Qte,Unit, Price); }
+            get { return string.Format("{0} ({1})  x  {2:F2} Dh",qte,unit, price); }
         }
         [Ignore]
         public string Total
         {
-            get { return string.Format("{0:F2}", Qte * Price); }
+            get { return string.Format("{0:F2}", qte * price); }
         }
-
-
-
 
         [Ignore]
         public Article article
         {
             set {
-                Arid = value.Arid;
-                ArtName = value.ArtName;
-                ArtRef = value.ArtRef;
-                Price = value.Price;
-                Cid = value.Cid;
-                Unit = value.Unit;
-                ImgName = value.ImgName;
-                Qte = 1;
+                arid = value.arid;
+                cid = value.cid;
+
+                name = value.name;
+                @ref = value.@ref;
+                price = value.priceGF;
+                bprice = value.bprice;
+
+                tva = value.tva;
+                commession  = value.commGR;
+                remise  = 0;
+                poid = value.poid;
+                depot = value.depot;
+
+                qte = 1;        
+                unit = "u";
+                ImgName = value.img;
+              
             }
         }
 
+        [Ignore]
+
+        public ImageSource ImagePath
+        {
+            get
+            {
+
+                //byte[] b = ImgName;
+                //Stream ms = new MemoryStream(b);
+
+                //return ImageSource.FromStream(() => ms);
+                return null;
+            }
+        }
 
         public static bool AddNew(Product art)
         {

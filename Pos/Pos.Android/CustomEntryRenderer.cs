@@ -26,8 +26,8 @@ namespace Pos.Droid
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-            if (e.OldElement == null)
-                Control.Background = null;
+            //if (e.OldElement == null)
+            //    Control.Background = null;
 
         }
     }

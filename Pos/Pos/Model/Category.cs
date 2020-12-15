@@ -10,7 +10,11 @@ namespace Pos.Model
        [PrimaryKey, AutoIncrement]
         public int cid { get; set; }
         [MaxLength(250)]
-        public string catName { get; set; }
+        public string name { get; set; }
+        [MaxLength(250)]
+        public string img { get; set; }
+        public int parent { get; set; }
+        public decimal remise { get; set; }
 
         public static bool AddNew(Category art)
         {

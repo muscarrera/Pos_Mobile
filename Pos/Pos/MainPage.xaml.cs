@@ -1,5 +1,7 @@
 ﻿using Android.Views;
 using Android.Views.Animations;
+using Newtonsoft.Json;
+using Pos.Helpers;
 using Pos.Model;
 using Pos.View;
 using SQLite;
@@ -7,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -49,7 +52,7 @@ namespace Pos
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
                 con.CreateTable<Product>();
-                return con.Table<Product>().Where(x => x.Fid == this.fctId).Select(x => x).ToList();
+                return con.Table<Product>().Where(x => x.fctid == this.fctId).Select(x => x).ToList();
             }
         }
 
@@ -65,7 +68,7 @@ namespace Pos
             InitializeComponent();
             this.BindingContext = this;
             facture = fct;
-            fctId = fct.Fid;
+            fctId = fct.id;
         }
 
         protected override async void OnAppearing()
@@ -83,8 +86,9 @@ namespace Pos
                      CVArt.ItemsSource = ArticleList;
                  }
                  catch (Exception) { }
-            
+
         }
+
         private void TapCategory_Top(object sender, EventArgs e)
         {
             DisplayAlert("eeeee","ttt","ok");
@@ -116,16 +120,16 @@ namespace Pos
             {
                 var current = e.CurrentSelection.FirstOrDefault() as Article;
 
-            var item = ProductList.FirstOrDefault(i => i.Arid == current.Arid);
+            var item = ProductList.FirstOrDefault(i => i.arid == current.arid);
 
             if (item != null)
             {
-                double qte = item.Qte + 1;
+                double qte = item.qte + 1;
                 foreach (Product pr in ProductList)
                 {
-                    if (pr.Arid == current.Arid)
+                    if (pr.arid == current.arid)
                     {
-                        pr.Qte = qte;
+                        pr.qte = qte;
                         Product.Edit(pr);
                         break;
                     }
@@ -134,7 +138,7 @@ namespace Pos
             {
                 Product pr = new Product();
                 pr.article = current;
-                pr.Fid = this.fctId;
+                pr.fctid = this.fctId;
 
                 if (Product.AddNew(pr))
                     ProductList.Add(pr);
@@ -187,13 +191,22 @@ namespace Pos
                 if (str[i].Contains(':'))
                 {
                     str[i] = str[i].Split(':').Last();
-                    SearchedArticleList = SearchedArticleList
-                        .Where(x => x.Cid == str[i] )
+
+                    int ctid = 0;
+                      ctid =  CategoryList.Where(x => x.name == str[i])
+                        .Select(x => x.cid).First();
+
+                    if (ctid >0)
+                    {
+                         SearchedArticleList = SearchedArticleList
+                        .Where(x => x.cid == ctid )
                         .Select(x => x).ToList();
+                    }
+                   
                 }else
                 {
                         SearchedArticleList = SearchedArticleList
-                        .Where(x => x.ArtName.Contains(str[i]))
+                        .Where(x => x.name.Contains(str[i]))
                         .Select(x => x).ToList();
                 }
             }

@@ -33,11 +33,11 @@ namespace Pos.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Img.Source = ImageSource.FromFile(product.ImgName);
-            lbName.Text = product.ArtName;
-            txtQte.Text = product.Qte.ToString();
-            txtPrice.Text = product.Price.ToString();
-            lbUnit.Text = product.Unit;
+            Img.Source = product.ImagePath;
+            lbName.Text = product.name;
+            txtQte.Text = product.qte.ToString();
+            txtPrice.Text = product.price.ToString();
+            lbUnit.Text = product.unit;
         }
 
         private void Add_Qte(object sender, EventArgs e)
@@ -60,8 +60,8 @@ namespace Pos.View
 
         private async void Add_Item(object sender, EventArgs e)
         {
-            product.Qte = double.Parse(txtQte.Text);
-            product.Price = double.Parse(txtPrice.Text);
+            product.qte = double.Parse(txtQte.Text);
+            product.price = double.Parse(txtPrice.Text);
 
             Product.Edit(product);
             await Navigation.PopAsync();

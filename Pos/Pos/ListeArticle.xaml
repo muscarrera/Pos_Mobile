@@ -40,11 +40,12 @@
                             <pv:PancakeView    BackgroundColor="Transparent">
                                                                   <!-- Content -->
                                     <StackLayout Padding="6,2" Margin="0,0,15,0" Orientation="Horizontal" HeightRequest="60" BackgroundColor="White">
-                                    <pv:PancakeView CornerRadius="60" Margin="10,0,0,0" WidthRequest="60" HasShadow="True" BackgroundColor="Purple"   VerticalOptions="FillAndExpand"   >
+                                    <pv:PancakeView CornerRadius="60" Margin="10,0,0,0" WidthRequest="60" BackgroundColor="Purple"   VerticalOptions="FillAndExpand"  
+                                                    Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                                                        </pv:PancakeView>
-                                    <pv:PancakeView CornerRadius="60"  Margin="-70,0,0,0"  WidthRequest="60" HasShadow="True" BackgroundColor="White"   VerticalOptions="FillAndExpand"   >
+                                    <pv:PancakeView CornerRadius="60"  Margin="-70,0,0,0"  WidthRequest="60"  BackgroundColor="White"   VerticalOptions="FillAndExpand"  Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                                     </pv:PancakeView>
-                                    <pv:PancakeView CornerRadius="60" Margin="-70,0,0,0"  HasShadow="True" BackgroundColor="Black"   VerticalOptions="FillAndExpand"   >
+                                    <pv:PancakeView CornerRadius="60" Margin="-70,0,0,0" BackgroundColor="Black"   VerticalOptions="FillAndExpand"  Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                                             <Image   WidthRequest="60" HeightRequest="60" Source="{Binding ImgName}" Aspect="AspectFill"/>
                                     </pv:PancakeView>
 

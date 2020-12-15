@@ -28,7 +28,7 @@ namespace Pos.View
              InitializeComponent();
             isEdit = true;
             cat = c;
-            TxtName.Text = cat.catName;
+            TxtName.Text = cat.name;
             this.BindingContext = this;
         }
 
@@ -45,7 +45,7 @@ namespace Pos.View
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
             {
-                cat.catName = TxtName.Text;
+                cat.name = TxtName.Text;
                 con.CreateTable<Category>();
                 int i = con.Update(cat);
 
@@ -58,7 +58,7 @@ namespace Pos.View
         {
             Category cat = new Category()
             {
-                catName = TxtName.Text
+                name = TxtName.Text
             };
 
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))

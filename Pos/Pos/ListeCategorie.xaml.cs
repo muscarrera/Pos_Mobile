@@ -59,7 +59,7 @@ namespace Pos
                 Category pr = lsCat.SelectedItem as Category;
 
                 string str = "Voulez vous suprimer : " + Environment.NewLine;
-                str += pr.catName;
+                str += pr.name;
                 bool answer = await DisplayAlert("Supression?", str, "Oui", "Non");
 
                 if (answer)
