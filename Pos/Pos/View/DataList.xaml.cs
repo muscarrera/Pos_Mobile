@@ -2,14 +2,17 @@
 using Java.Sql;
 using Newtonsoft.Json;
 using Pos.Model;
+using Rg.Plugins.Popup.Extensions;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
@@ -22,6 +25,7 @@ namespace Pos.View
         public List<Product> products;
         public int fctId;
         Facture facture;
+        string[] Mode = { "Cache" };
 
         public double Total
         {
@@ -32,9 +36,19 @@ namespace Pos.View
                 {
                     t += double.Parse(pr.Total);
                 }
-                facture.Total = t;
+                facture.total = t;
                 Facture.Edit(facture);
                 return t; }
+        }
+        private string modePayemant;
+
+        public string ModePayement
+        {
+            get { return modePayemant; }
+            set { 
+                modePayemant = value;
+                btModePayement.Text = $"MP: {value}";
+                 }
         }
 
         public DataList()
@@ -48,6 +62,22 @@ namespace Pos.View
             fctId = fct.id;
             facture=fct;
          }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            products = new List<Product>(GetListOfProduct());
+            // CVArt.ItemsSource = products;
+            LbTotal.Text = string.Format("{0:F2}", Total);
+            BindableLayout.SetItemsSource(CVPrd, products);
+
+            lbId.Text = fctId.ToString();
+            lbDate.Text = facture.date.ToString("dd/MM/yyyy e\\n HH:mm");
+            lbName.Text = facture.name;
+            modePayemant = facture.modePayement;
+
+            await GetModePayement_API();
+        }
+
 
         private void GoBack(object sender, EventArgs e)
         {
@@ -72,28 +102,45 @@ namespace Pos.View
             }
         }
 
-        protected override void OnAppearing()
+        public async Task GetModePayement_API()
         {
-            base.OnAppearing();
-            products = new List<Product>(GetListOfProduct());
-           // CVArt.ItemsSource = products;
-            LbTotal.Text = string.Format("{0:F2}", Total);
-            BindableLayout.SetItemsSource(CVPrd, products);
 
-            lbId.Text = fctId.ToString();
-            lbDate.Text = facture.date.ToString("dd/MM/yyyy e\\n HH:mm");
-            lbName.Text = facture.name;
-            
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                HttpClient client;
+                client = new HttpClient();
+                try
+                {
+                    string content = await client.GetStringAsync($"{App.uriAPI}/api/modecln/{facture.cid}/{facture.total}");
+                    Mode = content.Split('|');
+                }
+                catch (Exception) { }
+            }
+
+    }
+        public async Task ShowModal_modePayement()
+        {
+            //SelectModePayement mp = new SelectModePayement(facture.cid, Total);
+            //string action = await DisplayActionSheet("ActionSheet: SavePhoto?", "Cancel", "Delete", "Photo Roll", "Email");
+
+            string action = await DisplayActionSheet("Selectioner le Mode dePeiement ", "", "", Mode);
+
+
+            facture.modePayement  = action;
+            ModePayement = facture.modePayement;
         }
-
-
 
         public async Task SaveCommandAsync()
         {
-            HttpClient client;
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet) { return; }
+
+            if (facture.modePayement =="")   { await  ShowModal_modePayement();}
+
+
+             HttpClient client;
             client = new HttpClient();
 
-             facture.items= products;
+             //facture.items= products;
                                                                                                                                                                                       
             string json = JsonConvert.SerializeObject(facture);
             StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -101,39 +148,84 @@ namespace Pos.View
             HttpResponseMessage response = null;
             if (facture.Commande_Client == "0" ) // is new
             {
-                response = await client.PostAsync($"{App.uriAPI}/api/fct/gr/{facture.Commande_Client}", content);
+                response = await client.PostAsync($"{App.uriAPI}/api/commande", content);
             }
-            
-             if (response.IsSuccessStatusCode)
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert(@"\tTodoItem successfully saved.","","ok");
+                await DisplayAlert(@"\tTodoItem successfully saved.", "", "ok");
                 facture.Commande_Client = response.Content.ToString();
                 Facture.Edit(facture);
             }
+         }
+        public async Task SaveProduct()
+        {
+            try
+            {
+                if (Connectivity.NetworkAccess != NetworkAccess.Internet) { return; }
+                if (facture.modePayement == "") { await ShowModal_modePayement(); }
+
+                using (var client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    var uri = new Uri($"{App.uriAPI}/api/commande");
+                  
+                    List<Item> itemsList = new List<Item>();
+                    foreach (var pr in products)   {
+                        Item i = new Item();
+                        i.arid = pr.arid;
+                        i.cid = pr.cid;
+                        i.name = pr.name;
+                        i.@ref = pr.@ref;
+                        i.price = pr.price;
+                        i.bprice = pr.bprice;
+                        i.remise = pr.remise;
+                        i.qte = pr.qte;
+                        i.commession = pr.commession;
+                        i.tva = pr.tva;
+                        i.poid = pr.poid;
+                        i.depot = pr.depot;
+
+                        itemsList.Add(i);
+                    }
+
+                    facture.items = itemsList;
+                    
+                    string serializedObject = JsonConvert.SerializeObject(facture);
+                    HttpContent contentPost = new StringContent(serializedObject, System.Text.Encoding.UTF8, "application/json");
+                    contentPost.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    if (facture.Commande_Client == "")
+                    {
+                     HttpResponseMessage response = await client.PostAsync(uri, contentPost);
+                    if (response.IsSuccessStatusCode) {
+                    var data = await response.Content.ReadAsStringAsync();
+
+                        facture.Commande_Client = data;
+                        Facture.Edit(facture); 
+                    }
+                    }
+               
+                }
             }
-
-
+            catch (Exception ex)
+            {
+                await DisplayAlert(ex.Message, "Error", "Ok");
+            }
+        }
 
         private async void Go_Back(object sender, EventArgs e)
         {
-            if (facture.modePayement=="")
-            {
-
-
-                return;
-            }
-
-            await SaveCommandAsync();
+            await SaveProduct();
+            //await SaveCommandAsync();
             await Navigation.PushAsync(new Factures());
         }
-
         private async void Edite_Invoked(object sender, EventArgs e)
         {
           
             var pr = ((SwipeItem)sender).BindingContext as Product;
              await Navigation.PushAsync(new DetailProduct(pr));
         }
-
         private async void Delete_Invoked(object sender, EventArgs e)
         {
             var pr = ((SwipeItem)sender).BindingContext as Product;
@@ -154,16 +246,15 @@ namespace Pos.View
 
             }
          }
-         
         private void ChangeClient_Click(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SelectClient(facture));
         }
-         private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            var md = new SelectModePayement(facture.cid);
-
-            Navigation.PushModalAsync(md);
+            await ShowModal_modePayement();
         }
+
+
     }
 }

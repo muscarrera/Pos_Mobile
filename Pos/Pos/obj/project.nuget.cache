@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bOUefy3Uu2O7107A3gCvRatc4at3Xl9z2S9gAO0d991z/wfPTCvObSiaEVa7e21yLNE1+ugpIog9QBi5DeALWA==",
+  "dgSpecHash": "pQsn1pUrgvP5rLK6KT8P9VMyMm1tGDuyFMqJNu2Y6qLBhRqsZMQ4Grt+NGApg6ae/bzDe2lb8ty0P9L6fflgGw==",
   "success": true,
   "projectFilePath": "D:\\vs 19\\Pos\\Pos\\Pos\\Pos.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\musca\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\musca\\.nuget\\packages\\rg.plugins.popup\\2.0.0.9\\rg.plugins.popup.2.0.0.9.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",

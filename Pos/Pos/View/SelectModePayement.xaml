@@ -1,40 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<pages:PopupPage  xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pos.View.SelectModePayement"
-              xmlns:helpers="clr-namespace:Pos.Helpers">
+              xmlns:helpers="clr-namespace:Pos.Helpers"
+                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:d="http://xamarin.com/schemas/2014/forms/design">
+
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
     
     
-    <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal" >
-            <Button HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Text="Choisir"
-                    TextColor="White" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                    Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbSelectMode_Click" />
-        </StackLayout>
-    </NavigationPage.TitleView>
-    
-    
-    <ContentPage.Content>
-        <StackLayout>
+    <StackLayout  Padding="20" BackgroundColor="WhiteSmoke" Margin="40">
+
+                  
             <ActivityIndicator x:Name="ModeIndic" IsRunning="true" VerticalOptions="CenterAndExpand"  />
-            
-            <ListView x:Name="lsMode">
-              
-                    <ListView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>mono</x:String>
-                            <x:String>monodroid</x:String>
-                            <x:String>monotouch</x:String>
-                            <x:String>monorail</x:String>
-                            <x:String>monodevelop</x:String>
-                            <x:String>monotone</x:String>
-                            <x:String>monopoly</x:String>
-                            <x:String>monomodal</x:String>
-                            <x:String>mononucleosis</x:String>
-                        </x:Array>
-                    </ListView.ItemsSource>
-            
+
+        <ListView x:Name="LsMode" ItemSelected="LsMode_ItemSelected">
+            <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ImageCell  TextColor="Purple"
+                            Text="{Binding .}" 
+                            ImageSource="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.PenPlus }, 
+                            Size=15,Color=Blue}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
+            
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    
+</pages:PopupPage>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0NzkSFBQbfiW8bnFYx/QvDoCiyBc7ui1b4f1hhUlN4lkMX9lYv2+cys+fqrEXoOK0sY8C442M4VCoVtGmgf8jw==",
+  "dgSpecHash": "mIVr9ZroeoHfgxA1BNbNrDli3y8QfddpSye/mWue/U8tu91hhB0XvmojHnNPQFeHUyd5Hx2NRVTyUASn5JSw0g==",
   "success": true,
   "projectFilePath": "D:\\vs 19\\Pos\\Pos\\Pos.iOS\\Pos.iOS.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\musca\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\musca\\.nuget\\packages\\rg.plugins.popup\\2.0.0.9\\rg.plugins.popup.2.0.0.9.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\musca\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",

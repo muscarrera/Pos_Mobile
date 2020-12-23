@@ -76,14 +76,14 @@ namespace Pos
             base.OnAppearing();
        
                  CategoryList = new List<Category>(GetListOfCat());
-                  ArticleList = await App.articleData.GetArticlesAsync();
+                 ArticleList = await App.articleData.GetArticlesAsync();
                  ProductList = new List<Product>(GetListOfProduct());
                  LbCounter.Text = ProductList.Count.ToString();
                  try
                  {
                      BindableLayout.SetItemsSource(StCat, CategoryList);
                      BindableLayout.SetItemsSource(CVPrd, ProductList);
-                     CVArt.ItemsSource = ArticleList;
+                     CVArt.ItemsSource = ArticleList.Take(50);
                  }
                  catch (Exception) { }
 
@@ -210,7 +210,7 @@ namespace Pos
                         .Select(x => x).ToList();
                 }
             }
-            CVArt.ItemsSource = SearchedArticleList;
+            CVArt.ItemsSource = SearchedArticleList.Take(50);
         }
 
         private void BtClearText_Clicked(object sender, EventArgs e)

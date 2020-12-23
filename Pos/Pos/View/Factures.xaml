@@ -11,8 +11,8 @@
                             Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbAdd_Clicked" />
             <Button  WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"   Clicked="TbEdit_Clicked" />
-            <Button  WidthRequest="40" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  Clicked="TbDetele_Clicked"/>
+            <Button  WidthRequest="100" HorizontalOptions="EndAndExpand" TextColor="Yellow" Text="Load" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.Menu}, Size=25,Color=Yellow}"  Clicked="TbDetele_Clicked"/>
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>

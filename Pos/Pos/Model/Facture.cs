@@ -19,8 +19,8 @@ namespace Pos.Model
         [MaxLength(250)]
         public string writer { get; set; }
         public DateTime date { get; set; }
-        public double Total { get; set; }
-        public double Avance { get; set; }
+        public double total { get; set; }
+        public double avance { get; set; }
         public double tva { get; set; }
         public double remise { get; set; }
         [MaxLength(250)]
@@ -42,9 +42,9 @@ namespace Pos.Model
         public string Bon_Livraison { get; set; }
         
         [Ignore]
-        public bool IsPayed  {   get => Avance >= Total;  }
+        public bool isPayed  {   get => avance >= total;  }
         [Ignore]
-        public List<Product> items { get; set; }
+        public List<Item> items { get; set; }
 
 
 

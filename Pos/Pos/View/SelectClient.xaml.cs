@@ -50,10 +50,10 @@ namespace Pos.View
 
                 cid = current.Clid,
                 name = current.name,
-                modePayement = current.ModePayement,
+                modePayement = "",
                 date = DateTime.Now,
-                Total = 0,
-                Avance = 0,
+                total = 0,
+                avance = 0,
                 tva = 0,
                 remise = 0,
                 droitTimbre = 0,
@@ -65,7 +65,7 @@ namespace Pos.View
                 Bon_Commande = "0",
                 Bon_Livraison = "0",
                 Devis = "0",
-                Commande_Client = "0",
+                Commande_Client = "",
                 isAdmin = "LANCER",
                 isValid = false
             };

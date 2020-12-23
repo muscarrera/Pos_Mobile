@@ -524,28 +524,6 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.
 C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.x86_64.o
 C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\app_shared_libraries\x86\libxamarin-app.so
 C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Debug\90\app_shared_libraries\x86_64\libxamarin-app.so
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\build.props
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\adb.props
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.csprojAssemblyReference.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\res.flag
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\16\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\17\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\21\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\23\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\30\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\34\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\36\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\37\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\38\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\42\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\files.cache
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\R.txt
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\R.cs.flag
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.csproj.CoreCompileInputs.cache
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\Pos.Android.dll
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\Pos.Android.pdb
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\com.novasoft.pospro.apk
@@ -555,6 +533,28 @@ D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\com.novasoft.pospro-Signed.apk
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\com.novasoft.pospro-Signed.apk.idsig
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\Pos.dll
 D:\vs 19\Pos\Pos\Pos.Android\bin\Debug\Pos.pdb
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\build.props
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\adb.props
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.csprojAssemblyReference.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\_VerifyXamarinAndroidSupportVersions.stamp
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_BuildLibraryImportsCache.stamp
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\res.flag
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\17\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\18\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\22\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\24\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\31\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\35\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\37\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\38\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\39\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\43\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\files.cache
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\R.txt
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\R.cs.flag
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.csproj.CoreCompileInputs.cache
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.csproj.CopyComplete
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\Pos.Android.pdb
@@ -610,6 +610,8 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Pos.Android.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Pos.Android.pdb
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Pos.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Pos.pdb
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Rg.Plugins.Popup.dll
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\Rg.Plugins.Popup.pdb
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\SQLite-net.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_v2.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\assets\SQLitePCLRaw.core.dll
@@ -736,6 +738,7 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\android\support\v7\widget\
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc6414252951f3f66c67\RecyclerViewScrollListener_2.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64156e5c4c4b5a0d88\CustomEntryRenderer.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64156e5c4c4b5a0d88\MainActivity.java
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc643dd37f507f3d9710\PopupPageRenderer.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc643f46942d9dd1fff9\ActionSheetRenderer.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc643f46942d9dd1fff9\ActivityIndicatorRenderer.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc643f46942d9dd1fff9\AHorizontalScrollView.java
@@ -973,6 +976,7 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64ee486da937c010f4\Labe
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64f8908e42fa42e603\PancakeDrawable.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64f8908e42fa42e603\PancakeViewRenderer.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64f8908e42fa42e603\RoundedCornerOutlineProvider.java
+D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\crc64fdbeeba101bd56dc\RgGestureDetectorListener.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\mono\android\app\ApplicationRegistration.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\mono\android\support\design\chip\ChipGroup_OnCheckedChangeListenerImplementor.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\src\mono\android\support\design\widget\AppBarLayout_OnOffsetChangedListenerImplementor.java

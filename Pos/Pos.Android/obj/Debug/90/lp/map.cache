@@ -2,6 +2,7 @@ dotMorten.Xamarin.Forms.AutoSuggestBox
 FormsViewGroup
 Plugin.Media
 Plugin.SharedTransitions
+Rg.Plugins.Popup
 SQLitePCLRaw.lib.e_sqlite3.android
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime

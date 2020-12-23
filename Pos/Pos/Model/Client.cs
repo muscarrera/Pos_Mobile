@@ -1,14 +1,16 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace Pos.Model
 {
    public  class Client
     {
-        [PrimaryKey]
-         public int Clid { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int id { get; set; }
+        public int Clid { get; set; }
         [MaxLength(250)]
         public string name { get; set; }
         [MaxLength(250)]
@@ -41,8 +43,16 @@ namespace Pos.Model
         [MaxLength(250)]
         public string ModePayement { get; set; }
         public decimal plafond { get; set; }
-        
-       
+
+        [Ignore]
+        public Color clColor
+        {
+            get {
+                Color ss = Color.Purple;
+                if (Clid == 0) {ss= Color.Red;}
+
+                return ss; }
+        }
         public static bool AddNew(Client art)
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))

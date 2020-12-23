@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <pv:PancakeView sharedTransitions:Transition.Name="dogtransition" CornerRadius="0,0,40,40"
-                        BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
+                        BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=Gray, Offset='10,10'}">
             
             <StackLayout Orientation="Horizontal" HeightRequest="80">
                 <Button HeightRequest="30" WidthRequest="40" Margin="5,10" BackgroundColor="Transparent" BorderWidth="0"
@@ -50,29 +50,24 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
 
-                            <pv:PancakeView  CornerRadius="10"   BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
+                            <pv:PancakeView  CornerRadius="10"   BackgroundColor="White" Shadow="{pv:ShadowMarkup Color=Gray, Offset='10,10'}">
                             <SwipeView>
                     <SwipeView.LeftItems>
-                        <SwipeItems>
-                            <SwipeItem Text="Modifie"
-                                       BackgroundColor="LightGreen"
-                       Invoked="Edite_Invoked"   
-                       IconImageSource="{FontImage FontFamily=AwesomeFont,
-                            Glyph={x:Static helpers:IconFont.TableSettings }, Size=15,Color=Purple}"/>
+                        <SwipeItems  Mode="Execute">
+                            <SwipeItem Text="Modifie"  BackgroundColor="LightGreen"   Invoked="Edite_Invoked"   
+                       IconImageSource="{FontImage FontFamily=AwesomeFont,  Glyph={x:Static helpers:IconFont.TableSettings }, Size=15,Color=Purple}"/>
                         </SwipeItems>
                     </SwipeView.LeftItems>
+                                
                     <SwipeView.RightItems>
-                        <SwipeItems Mode="Execute">
-                            <SwipeItem Text="Supprimer"
-                        BackgroundColor="LightPink"
-                        Invoked="Delete_Invoked" 
-                         IconImageSource="{FontImage FontFamily=AwesomeFont,
-                         Glyph={x:Static helpers:IconFont.Delete }, Size=15,Color=Purple}"/>
+                        <SwipeItems Mode="Reveal">
+                            <SwipeItem Text="Supprimer"  BackgroundColor="LightPink"   Invoked="Delete_Invoked" 
+                         IconImageSource="{FontImage FontFamily=AwesomeFont,   Glyph={x:Static helpers:IconFont.Delete }, Size=15,Color=Purple}"/>
                         </SwipeItems>
                     </SwipeView.RightItems>
+                                
                     <!-- Content -->
-                                <StackLayout Padding="6"  Orientation="Horizontal" HeightRequest="60" WidthRequest="300" BackgroundColor="#F1F2F2">
-
+                     <StackLayout Padding="6"  Orientation="Horizontal" HeightRequest="60" WidthRequest="300" BackgroundColor="white">
                         <pv:PancakeView CornerRadius="10"  Opacity="0.7" BackgroundColor="Black"   VerticalOptions="FillAndExpand"   >
                                             <Image  sharedTransitions:Transition.Name="ProductImage" WidthRequest="60" HeightRequest="60" Source="{FontImage FontFamily=AwesomeFont,
                                                         Glyph={x:Static helpers:IconFont.Shopping }, Size=20,Color=WhiteSmoke }"  />
@@ -107,19 +102,12 @@
 
         <StackLayout Orientation="Horizontal" Grid.Row="3">
 
-            <pv:PancakeView   CornerRadius="15" Margin="15,10,0,10"
-                      BackgroundColor="White"   >
-                <Button  BackgroundColor="Transparent" TextColor="Purple"  WidthRequest="50"
-                            HorizontalOptions="FillAndExpand" BorderWidth="0" 
-                            Clicked="Go_Back" ImageSource="{FontImage FontFamily=AwesomeFont,
-                            Glyph={x:Static helpers:IconFont.Home}, Size=20,Color=#7d7d7d}"/>
-            </pv:PancakeView>
-            
+                    
             <pv:PancakeView   CornerRadius="15" HorizontalOptions="Start"  Margin="0,10"
-                        BackgroundColor="White" >
+                        BackgroundColor="White" WidthRequest="200">
                    <Button  BackgroundColor="Transparent" TextColor="Purple" Padding="15,10" VerticalOptions="FillAndExpand" 
                             HorizontalOptions="FillAndExpand" BorderWidth="0" Text="   MD PMNT" Clicked="Button_Clicked"
-                           ImageSource="{FontImage FontFamily=AwesomeFont,
+                           x:Name="btModePayement" ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=Gold}"/>
             </pv:PancakeView>
 

@@ -28,7 +28,7 @@ namespace Pos.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            BindableLayout.SetItemsSource(CVFct, factures);
+            BindableLayout.SetItemsSource(CVFct, factures.Where(x => x.Commande_Client == ""));
         }
 
         public List<Client> GetClients()
@@ -60,7 +60,7 @@ namespace Pos.View
                 //Set the ItemsSource to be your filtered dataset
 
                 ((AutoSuggestBox)sender).ItemsSource = clients.Where(x => x.name.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
-                ((AutoSuggestBox)sender).DisplayMemberPath = "ClientName";
+                ((AutoSuggestBox)sender).DisplayMemberPath = "name";
 
             }
         }
@@ -69,6 +69,7 @@ namespace Pos.View
             if (e.ChosenSuggestion != null)
             {
                 // User selected an item from the suggestion list, take an action on it here.
+
             }
             else
             {
@@ -77,7 +78,7 @@ namespace Pos.View
         }
         private void AutoSuggestBox_SuggestionChosen(object sender, AutoSuggestBoxSuggestionChosenEventArgs e)
         {
-            ((AutoSuggestBox)sender).TextMemberPath = "ClientName";
+            ((AutoSuggestBox)sender).TextMemberPath = "name";
         }
 
         private void Edite_Invoked(object sender, EventArgs e)
@@ -92,8 +93,7 @@ namespace Pos.View
 
         private async void TbAdd_Clicked(object sender, EventArgs e)
         {
-            await  Navigation.PushAsync(new SelectClient());
-        
+            await  Navigation.PushAsync(new SelectClient());        
         }
 
         private void TbEdit_Clicked(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace Pos.View
 
         private void TbDetele_Clicked(object sender, EventArgs e)
         {
-
+            BindableLayout.SetItemsSource(CVFct, factures.Where(x => x.Commande_Client == ""));
         }
  
     }

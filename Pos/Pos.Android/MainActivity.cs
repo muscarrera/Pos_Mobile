@@ -22,6 +22,8 @@ namespace Pos.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Rg.Plugins.Popup.Popup.Init(this);
+
             Forms.SetFlags("SwipeView_Experimental");
             await CrossMedia.Current.Initialize();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

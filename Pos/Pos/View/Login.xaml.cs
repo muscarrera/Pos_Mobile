@@ -21,14 +21,29 @@ namespace Pos.View
     {
         readonly HttpClient _httpClient = new HttpClient();
         string UserPass = "pass";
+        bool isActive = false;
 
-       
+        private DateTime _dt;
+
+        public DateTime activeDate
+        {
+            get { return _dt; }
+            set { 
+                _dt = value;
+
+                int nm = (_dt - DateTime.Now).Days;
+
+                if (nm > -30)
+                    isActive = true;
+             }
+        }
+
 
         public bool HasArticle
         {
             get { return false; }
             set {
-                                ArtIndic.IsRunning = false;
+                ArtIndic.IsRunning = false;
                 ArtIndic.IsVisible = false;
             if (value)
                     lbArticle.Text = "Listes des articles ... Ok";
@@ -41,11 +56,12 @@ namespace Pos.View
         public Login()
         {
             InitializeComponent();
-
-            
+                        
                 TxtUser.Text = Preferences.Get("UserName", "user");
                 UserPass = Preferences.Get("UserPass", "pass");
-                       
+                activeDate = Preferences.Get("active_date", DateTime.Now);
+
+            txtactive.IsVisible = !isActive;
         }
 
 
@@ -59,13 +75,13 @@ namespace Pos.View
             if (TestConnection()==false)
                    return;
 
-
-
-            try
+           try
             {
-                HasArticle = await GetArticlesAPI();
-                
-            }catch (Exception)
+               HasArticle = await GetArticlesAPI();
+               //   HasArticle = Task.Run(()=> GetArticlesAPI());
+
+            }
+            catch (Exception)
             {
                 ArtIndic.IsRunning = false;
                 ArtIndic.IsVisible = false;
@@ -101,7 +117,9 @@ namespace Pos.View
 
                 return content.ToLower().Contains("true");
             }
-            catch (Exception) { return false; }
+            catch (Exception ex) {
+                await DisplayAlert(ex.Message, "", "ok");
+                return false; }
     }
 
         //get Article
@@ -113,6 +131,7 @@ namespace Pos.View
             
             if (await isDbValueChanged(App.article_value_string) == false)
             {
+                plArt.IsVisible = false;
                 return false;
             }
             try
@@ -142,7 +161,7 @@ namespace Pos.View
         public async Task<int> GetCatsAPI()
         {
            
-            List<Category> arts;
+            List<Category> arts = new List<Category>();
             
             if (await isDbValueChanged(App.category_value_string) == false)
             {
@@ -150,7 +169,17 @@ namespace Pos.View
             }
 
             string content = await _httpClient.GetStringAsync($"{App.uriAPI}/api/cat");
+
+            try
+            {
             arts = JsonConvert.DeserializeObject<List<Category>>(content);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert(ex.Message, "", "ok");
+            }
+
+            
 
             try
             {
@@ -200,6 +229,18 @@ namespace Pos.View
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (ArtIndic.IsRunning) { return; }
+
+            if (isActive ==false)
+            {
+                int nm = DateTime.Now.Day * 105;
+                nm += 105;
+
+                if (int.Parse(txtactive.Text.Trim()) == nm)
+                {
+                 Preferences.Set("active_date", DateTime.Now.AddYears(1));
+                } else { return; }
+           }
+
 
             if (TxtPass.Text == UserPass)
             {

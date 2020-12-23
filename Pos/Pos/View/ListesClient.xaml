@@ -42,9 +42,9 @@
             <ListView x:Name="lsClient" ItemSelected="lsClient_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate >
-                        <ImageCell  TextColor="Purple"
-                            Text="{Binding ClientName}" 
-                            Detail="{Binding Info}"
+                        <ImageCell  TextColor="{Binding clColor}"
+                            Text="{Binding name}" 
+                            Detail="{Binding ville}"
                             ImageSource="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.AccountBox}, Size=25,Color=#e7e7e7}"/>
                     </DataTemplate>

@@ -12,11 +12,11 @@
         <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" >
             <Button WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbAdd_Clicked" />
+                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" />
             <Button  WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"   Clicked="TbEdit_Clicked" />
+                            Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"    />
             <Button  WidthRequest="40" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  Clicked="Delete_Clicked"/>
+                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  />
         </StackLayout>
     </NavigationPage.TitleView>
 
@@ -24,10 +24,10 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <forms:AutoSuggestBox PlaceholderText="Search" WidthRequest="200"
-                TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen" Margin="10,10,10,20"/>
+            <Entry Placeholder="Search" WidthRequest="200"
+                   x:Name="txt"
+                TextChanged="TXT_TextChanged"
+                 Margin="10,10,10,20"/>
              
             <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <CollectionView x:Name="lsArt" SelectionMode="Single"> 
@@ -46,26 +46,27 @@
                                     <pv:PancakeView CornerRadius="60"  Margin="-70,0,0,0"  WidthRequest="60"  BackgroundColor="White"   VerticalOptions="FillAndExpand"  Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
                                     </pv:PancakeView>
                                     <pv:PancakeView CornerRadius="60" Margin="-70,0,0,0" BackgroundColor="Black"   VerticalOptions="FillAndExpand"  Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}">
-                                            <Image   WidthRequest="60" HeightRequest="60" Source="{Binding ImgName}" Aspect="AspectFill"/>
+                                        <Image   WidthRequest="60" HeightRequest="60" Source="{FontImage FontFamily=AwesomeFont,
+                                                        Glyph={x:Static helpers:IconFont.Shopping }, Size=20,Color=WhiteSmoke }"/>
                                     </pv:PancakeView>
 
                                     <StackLayout  BackgroundColor="#e7e7e7" Margin="-20,0,0,0" Padding="30,0,0,0" HorizontalOptions="FillAndExpand"> 
                                         <StackLayout  Padding="5" HorizontalOptions="FillAndExpand">
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding ArtName}"   HorizontalOptions="FillAndExpand" 
+                                                <Label Text="{Binding name}"   HorizontalOptions="FillAndExpand" 
                                                     FontSize="15" FontAttributes="Bold" TextColor="Purple" />
-                                                <Label Text="{Binding Cid}"   HorizontalOptions="EndAndExpand" FontAttributes="Italic" 
+                                                <Label Text="{Binding cid}"   HorizontalOptions="EndAndExpand" FontAttributes="Italic" 
                                                      FontSize="12"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding ArtRef}"  FontSize="13"/>
+                                                <Label Text="{Binding ref}"  FontSize="13"/>
                                                 <Label Text="{Binding PriceText}"   HorizontalOptions="EndAndExpand" FontAttributes="Bold" 
                                                      FontSize="13"/>
                                             </StackLayout>
                                             
                                         </StackLayout>
 
-                                        <Label Text="{Binding Price}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="80"
+                                        <Label Text="{Binding price}" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="80"
                                                TextColor="Purple"  FontSize="18"/>
                                     </StackLayout>
                               </StackLayout>

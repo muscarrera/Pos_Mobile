@@ -26,13 +26,15 @@ namespace Pos
         {
             base.OnAppearing();
             articleList = await App.articleData.GetArticlesAsync();
+            
+            lsArt.ItemsSource = new List<Article>(articleList.Take(100));
+
         }
 
         private async  void TbAdd_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEditArticles());
         }
-
         private async void TbEdit_Clicked(object sender, EventArgs e)
         {
             try
@@ -78,7 +80,7 @@ namespace Pos
                 //Set the ItemsSource to be your filtered dataset
 
                 ((AutoSuggestBox)sender).ItemsSource = articleList.Where(x => x.name.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
-                ((AutoSuggestBox)sender).DisplayMemberPath = "ArtName";
+                ((AutoSuggestBox)sender).DisplayMemberPath = "name";
 
             }
         }
@@ -93,16 +95,14 @@ namespace Pos
                 // User hit Enter from the search box. Use args.QueryText to determine what to do.
             }
         }
-
         private void AutoSuggestBox_SuggestionChosen(object sender, AutoSuggestBoxSuggestionChosenEventArgs e)
         {
-            ((AutoSuggestBox)sender).TextMemberPath = "ArtName";
+            ((AutoSuggestBox)sender).TextMemberPath = "name";
         }
 
         private async void Edite_Invoked(object sender, EventArgs e)
         {
-          
-
+         
             try
             {
                 var it = (sender as SwipeItem).BindingContext as Article;
@@ -112,7 +112,6 @@ namespace Pos
             }
             catch (Exception) { }
         }
-
         private async void Delete_Invoked(object sender, EventArgs e)
         {
             try
@@ -135,12 +134,18 @@ namespace Pos
             }
             catch (Exception) { }
         }
-
         private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
         }
 
-  
+        private void TXT_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var ls = articleList
+                .Where((x) =>  x.name.Contains(txt.Text) || x.@ref.Contains(txt.Text) || x.code.Contains(txt.Text))
+                .Select(x => x).ToList();
+
+            lsArt.ItemsSource = ls;
+        }
     }
 }

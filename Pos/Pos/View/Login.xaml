@@ -14,9 +14,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image BackgroundColor="Purple" x:Name="Img" HeightRequest="200" Aspect="AspectFill"/>
+        <StackLayout>
+        <Image BackgroundColor="Purple" x:Name="Img" HeightRequest="100"  Margin="40"   Source="{FontImage FontFamily=AwesomeFont, 
+                             Glyph={x:Static helpers:IconFont.ShoppingSearch}, Size=25,Color=White}"/>
+        
+        <Label Text=". CMC Pro ." HorizontalOptions="CenterAndExpand" Margin="-40" TextColor="White" FontSize="30" FontAttributes="Bold"/>
+            <Label Text=". Version AFRD INZ GR 2.00 ." HorizontalOptions="CenterAndExpand"  Margin="40" TextColor="White" FontSize="10" FontAttributes="Bold"/>
 
-            <StackLayout Padding="25" Grid.Row="1" Margin="0,-90,0,0">
+
+        </StackLayout>
+        
+        <StackLayout Padding="25" Grid.Row="1" Margin="0,-90,0,0">
+                
+                
             <pv:PancakeView VerticalOptions="CenterAndExpand" CornerRadius="15"  Margin="10,0"  Padding="15" 
                                                    HorizontalOptions="FillAndExpand" BackgroundColor="white">
 
@@ -33,6 +43,7 @@
                         <StackLayout>
                             <Label Text="Pass.."/>
                             <Entry x:Name="TxtPass" />
+                            <Entry Placeholder="ACTIVATION" x:Name="txtactive" IsVisible="false"/>
                         </StackLayout>
                     </pv:PancakeView>
 

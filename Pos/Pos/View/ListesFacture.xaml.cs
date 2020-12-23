@@ -57,5 +57,11 @@ namespace Pos.View
             Detail = new NavigationPage(new Factures());
             IsPresented = false;
         }
+
+        private void GoToParams(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new Setting());
+            IsPresented = false;
+        }
     }
 }

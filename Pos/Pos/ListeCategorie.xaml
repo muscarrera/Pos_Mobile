@@ -10,11 +10,11 @@
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal" >
             <Button WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}" Clicked="TbAdd_Clicked" />
+                            Glyph={x:Static helpers:IconFont.PlusBox}, Size=25,Color=White}"/>
             <Button  WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"   Clicked="TbEdit_Clicked" />
+                            Glyph={x:Static helpers:IconFont.Tools}, Size=25,Color=White}"  />
             <Button  WidthRequest="40" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" BorderWidth="0" ImageSource ="{FontImage FontFamily=AwesomeFont, 
-                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  Clicked="TbDetele_Clicked"/>
+                            Glyph={x:Static helpers:IconFont.Delete}, Size=25,Color=Red}"  />
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.Content>
@@ -22,7 +22,7 @@
             <ListView x:Name="lsCat">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell TextColor="Purple" Text="{Binding catName}" />
+                        <TextCell TextColor="Purple" Text="{Binding name}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

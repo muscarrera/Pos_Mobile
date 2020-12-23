@@ -11,6 +11,7 @@ public class MonoPackageManager_Resources {
 		"Plugin.Media.dll",
 		"Plugin.SharedTransitions.dll",
 		"Pos.dll",
+		"Rg.Plugins.Popup.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

@@ -1,48 +1,48 @@
-@string/appbar_scrolling_view_behavior;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\flyoutcontent.xml
-@string/appbar_scrolling_view_behavior;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
+@string/appbar_scrolling_view_behavior;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\flyoutcontent.xml
+@string/appbar_scrolling_view_behavior;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 adaptive-icon;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
 alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\fade_in.xml
 alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\fade_out.xml
-alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\enterfromleft.xml
-alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\exittoleft.xml
-android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\flyoutcontent.xml
-android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
-android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\shellcontent.xml
-android.support.design.widget.BottomNavigationView;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\bottomtablayout.xml
-android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\flyoutcontent.xml
-android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
-android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\shellcontent.xml
-android.support.design.widget.TabLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
+alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\enterfromleft.xml
+alpha;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\exittoleft.xml
+android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
+android.support.design.widget.AppBarLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\shellcontent.xml
+android.support.design.widget.BottomNavigationView;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\bottomtablayout.xml
+android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\flyoutcontent.xml
+android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
+android.support.design.widget.CoordinatorLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\shellcontent.xml
+android.support.design.widget.TabLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
 android.support.design.widget.TabLayout;obj\Debug\90\res\layout\tabbar.xml
-android.support.v7.widget.RecyclerView;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\flyoutcontent.xml
-android.support.v7.widget.Toolbar;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
-android.support.v7.widget.Toolbar;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\shellcontent.xml
+android.support.v7.widget.RecyclerView;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\flyoutcontent.xml
+android.support.v7.widget.Toolbar;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
+android.support.v7.widget.Toolbar;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\shellcontent.xml
 android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
-attr;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\attrs.xml
+attr;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\attrs.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
-cache-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\42\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+cache-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 changeBounds;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\transition\navigation_transition.xml
 changeClipBounds;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\transition\navigation_transition.xml
 changeImageTransform;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\transition\navigation_transition.xml
 changeTransform;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\transition\navigation_transition.xml
 color;obj\Debug\90\res\values\colors.xml
-declare-styleable;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\attrs.xml
-external-cache-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\42\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+declare-styleable;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\attrs.xml
+external-cache-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-files-path;obj\Debug\90\res\xml\file_paths.xml
-external-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\42\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+external-path;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
-FrameLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\bottomtablayout.xml
-item;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\styles.xml
+FrameLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\bottomtablayout.xml
+item;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\styles.xml
 item;obj\Debug\90\res\values\styles.xml
-LinearLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\bottomtablayout.xml
-paths;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\42\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
+LinearLayout;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\bottomtablayout.xml
+paths;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\43\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 paths;obj\Debug\90\res\xml\file_paths.xml
-resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\attrs.xml
-resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\strings.xml
-resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\styles.xml
+resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\attrs.xml
+resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\strings.xml
+resources;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\styles.xml
 resources;obj\Debug\90\res\values\colors.xml
 resources;obj\Debug\90\res\values\styles.xml
 scale;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\flip_in.xml
@@ -59,12 +59,12 @@ set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\fade_in.xml
 set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\fade_out.xml
 set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\flip_in.xml
 set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\flip_out.xml
-set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\enterfromleft.xml
-set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\enterfromright.xml
-set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\exittoleft.xml
-set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\exittoright.xml
-string;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\strings.xml
-style;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\values\styles.xml
+set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\enterfromleft.xml
+set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\enterfromright.xml
+set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\exittoleft.xml
+set;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\exittoright.xml
+string;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\strings.xml
+style;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\values\styles.xml
 style;obj\Debug\90\res\values\styles.xml
 transitionSet;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\transition\navigation_transition.xml
 translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\enter_bottom.xml
@@ -77,8 +77,8 @@ translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\exit_right.
 translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\exit_top.xml
 translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\flip_in.xml
 translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\3\jl\res\anim\flip_out.xml
-translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\enterfromleft.xml
-translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\enterfromright.xml
-translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\exittoleft.xml
-translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\anim\exittoright.xml
-xamarin.forms.platform.android.appcompat.FormsViewPager;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\44\jl\res\layout\rootlayout.xml
+translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\enterfromleft.xml
+translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\enterfromright.xml
+translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\exittoleft.xml
+translate;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\anim\exittoright.xml
+xamarin.forms.platform.android.appcompat.FormsViewPager;D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\lp\45\jl\res\layout\rootlayout.xml
