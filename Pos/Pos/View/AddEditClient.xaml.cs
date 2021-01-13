@@ -83,7 +83,7 @@ namespace Pos.View
                 client.info = txtVille.Text;
                 client.responsable = txtName.Text;
                 client.porte_Monie = 0;
-                client.plafond = 0;
+                client.plafond = 1000;
                 client.ModePayement = "Cache";
                 client.isBlocked = false;
 

@@ -15,7 +15,17 @@ namespace Pos.Data
         public ClientData(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Client>().Wait();
+            try
+            {
+             _database.CreateTableAsync<Client>().Wait();
+            }
+            catch (Exception)
+            {
+                _database.DropTableAsync<Client>().Wait();
+                _database.CreateTableAsync<Client>().Wait();
+            }
+
+          
         }
 
         public Task<List<Client>> GetArticlesAsync()

@@ -12,7 +12,7 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="WhiteSmoke" Margin="20,10" HeightRequest="120">
+            <StackLayout BackgroundColor="WhiteSmoke" Margin="20,10" HeightRequest="60">
                 
             </StackLayout>
             <Frame Margin="20,10" Padding="0,10" HeightRequest="100" BorderColor="#e7e7e7">

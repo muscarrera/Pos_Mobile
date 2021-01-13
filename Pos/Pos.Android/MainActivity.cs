@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Pos.Droid
 {
-    [Activity(Label = "Pos", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Pos", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected  override async void OnCreate(Bundle savedInstanceState)
@@ -36,6 +36,12 @@ namespace Pos.Droid
             string imgFullPath = Path.Combine(folderPath, "AlMohassib/");
 
             LoadApplication(new App(dbFullPath, imgFullPath));
+        }
+
+        public override void OnBackPressed()
+        {
+            return;
+            // base.OnBackPressed();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

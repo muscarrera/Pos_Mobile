@@ -38,7 +38,10 @@
                 <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
                       Clicked="Min_Qte"
               ImageSource="{FontImage FontFamily=AwesomeFont, Glyph={x:Static helpers:IconFont.Minus}, Size=15,Color=Black}"/>
-                <Entry x:Name="txtQte"  Text="5" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="txtQte"  Text="5" HorizontalTextAlignment="Center"
+                       FontAttributes="Bold" BackgroundColor="Transparent"
+                        ReturnType="Done" Keyboard="Numeric" 
+                       HorizontalOptions="FillAndExpand"/>
 
                 <Label  x:Name="lbUnit" Text="Un" Padding="2,10" />
                 <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"
@@ -47,12 +50,12 @@
             </StackLayout>
         </pv:PancakeView>
 
-        <pv:PancakeView Grid.Row="3"  Padding="0" CornerRadius="250" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}"
+        <pv:PancakeView IsEnabled="False" Grid.Row="3"  Padding="0" CornerRadius="250" Shadow="{pv:ShadowMarkup Color=#FF0000, Offset='10,10'}"
                         WidthRequest="200" HeightRequest="40" 
                         HorizontalOptions="Center" BackgroundColor="white" Margin="0,30">
             <StackLayout Orientation="Horizontal">
 
-                <Entry x:Name="txtPrice"  Text="5" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                <Entry x:Name="txtPrice"  ReturnType="Done" Keyboard="Numeric" Text="5" HorizontalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
 
                 <Label Text="Dhs" Padding="2,10" />
                 <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" Padding="10" BorderWidth="0"

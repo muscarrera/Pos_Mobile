@@ -53,6 +53,14 @@ namespace Pos.Model
 
                 return ss; }
         }
+        [Ignore]
+        public string clientName
+        {
+            get
+            {
+              return name;
+            }
+        }
         public static bool AddNew(Client art)
         {
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))

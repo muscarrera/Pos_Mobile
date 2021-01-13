@@ -63,7 +63,7 @@ namespace Pos.Model
         [Ignore]
         public string PriceText
         {
-            get { return string.Format("{0:F2} Dh/" + "U", sprice ); }
+            get { return string.Format("{0:F2} Dh/" + "U", priceGF); }
         }
 
         public static bool AddNew(Article art)

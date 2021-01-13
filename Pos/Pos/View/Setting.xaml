@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pos.View.Setting"
+                            xmlns:helpers="clr-namespace:Pos.Helpers" >
+    <ContentPage.Content>
+        <ScrollView  Margin="20" Padding="20">
+            <StackLayout >
+
+                <Label Text="Nom d'Utilisateur :" />
+                <Entry x:Name="txtuser" TabIndex="1" />
+                <Label Text="Mot de pass" />
+                <Entry x:Name="txtpwd" TabIndex="2"/>
+                <Label Text="ID User" />
+                <Entry x:Name="txtId" TabIndex="3"  ReturnType="Done" Keyboard="Numeric"/>
+                <Label Text="ART Value" />
+                <Entry x:Name="txtart" />
+                <Label Text="CLT Value" TabIndex="4"/>
+                <Entry x:Name="txtclt" />
+                <Label Text="CTG Value" TabIndex="5"/>
+                <Entry x:Name="txtctg" />
+                <Label Text="URI API" />
+                <Entry x:Name="txturi" TabIndex="6"/>
+                <Label Text="Activation" />
+                <Entry x:Name="txtactive" TabIndex="7" />
+                
+                <Button HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Valider" Clicked="Button_Clicked"
+                TextColor="White" Padding="100,5" ImageSource ="{FontImage FontFamily=AwesomeFont, 
+                Glyph={x:Static helpers:IconFont.ContentSave}, Size=25,Color=White}"
+                             />
+            </StackLayout>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

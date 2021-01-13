@@ -60,7 +60,7 @@ namespace Pos.View
                 //Set the ItemsSource to be your filtered dataset
 
                 ((AutoSuggestBox)sender).ItemsSource = clients.Where(x => x.name.Contains(((AutoSuggestBox)sender).Text)).Select(x => x).ToList();
-                ((AutoSuggestBox)sender).DisplayMemberPath = "name";
+                ((AutoSuggestBox)sender).DisplayMemberPath = "clientName";
 
             }
         }
@@ -78,13 +78,17 @@ namespace Pos.View
         }
         private void AutoSuggestBox_SuggestionChosen(object sender, AutoSuggestBoxSuggestionChosenEventArgs e)
         {
-            ((AutoSuggestBox)sender).TextMemberPath = "name";
+            ((AutoSuggestBox)sender).TextMemberPath = "clientName";
         }
 
         private void Edite_Invoked(object sender, EventArgs e)
         {
             var pr = ((SwipeItem)sender).BindingContext as Facture;
-            Navigation.PushAsync(new MainPage(pr));
+
+            if (pr.Commande_Client != "")
+                Navigation.PushAsync(new DataList(pr));
+            else
+                Navigation.PushAsync(new MainPage(pr));
         }
         private void Delete_Invoked(object sender, EventArgs e)
         {
@@ -105,6 +109,29 @@ namespace Pos.View
         {
             BindableLayout.SetItemsSource(CVFct, factures.Where(x => x.Commande_Client == ""));
         }
- 
+
+        private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TxtSearch.Text.Length > 0)
+                BtClearText.IsVisible = true;
+            else
+            {
+            BtClearText.IsVisible = false;
+            BindableLayout.SetItemsSource(CVFct, factures.Where(x => x.Commande_Client == ""));
+            return;
+            }
+               
+
+            var lst = factures
+                .Where(x => x.name.Contains(TxtSearch.Text))
+                .Select(x => x).ToList();
+            
+            BindableLayout.SetItemsSource(CVFct, lst);
+        }
+
+        private void BtClearText_Clicked(object sender, EventArgs e)
+        {
+            TxtSearch.Text = "";
+        }
     }
 }

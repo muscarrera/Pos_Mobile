@@ -24,7 +24,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                  </Grid.RowDefinitions>
-                <Frame Margin="20,10" Padding="0"  BorderColor="#e7e7e7">
+                <Frame Margin="20,10" Padding="0" HeightRequest="60" BorderColor="#e7e7e7">
                     <Grid >
                         <Grid.ColumnDefinitions >
                             <ColumnDefinition Width="Auto"/>
@@ -35,7 +35,7 @@
                                 ImageSource="{FontImage FontFamily=AwesomeFont, 
                             Glyph={x:Static helpers:IconFont.SearchWeb},
                             Size=30,Color=Gray}"/>
-                        <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" FontSize="14"/>
+                        <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" FontSize="22"/>
                         <Button Grid.Column="2" HeightRequest="30" WidthRequest="40"  BackgroundColor="Transparent" BorderWidth="0"
                                 ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.MicrosoftXboxControllerMenu},
@@ -129,7 +129,7 @@
                                     <Button  HeightRequest="10" WidthRequest="10" BackgroundColor="WhiteSmoke" BorderWidth="0"
                                              HorizontalOptions="End" Margin="10" VerticalOptions="Start"
                                             ImageSource="{FontImage FontFamily=AwesomeFont,
-                                            Glyph={x:Static helpers:IconFont.BookmarkPlus}, Size=22,Color=WhiteSmoke}" Clicked="Button_Clicked"/>
+                                            Glyph={x:Static helpers:IconFont.BookmarkPlus}, Size=22,Color=WhiteSmoke}" />
 
                                             <pv:PancakeView CornerRadius="5" Opacity="0.7"  BackgroundColor="Black" Margin="2" VerticalOptions="End" HorizontalOptions="End" >
                                             <Label Text="{Binding PriceText}" Margin="10,0" TextColor="red" FontSize="9" FontAttributes="Bold" />

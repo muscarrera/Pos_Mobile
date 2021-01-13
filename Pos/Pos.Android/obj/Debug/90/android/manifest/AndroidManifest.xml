@@ -7,11 +7,11 @@
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <application android:label="Pos Pro" android:icon="@mipmap/ic_launcher" android:usesCleartextTraffic="true" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true" android:extractNativeLibs="true">
+  <application android:label="Pos Pro" android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:usesCleartextTraffic="true" android:name="android.app.Application" android:debuggable="true" android:extractNativeLibs="true">
     <provider android:name="android.support.v4.content.FileProvider" android:authorities="com.novasoft.pospro.fileprovider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
     </provider>
-    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="Pos" android:theme="@style/MainTheme" android:name="crc64156e5c4c4b5a0d88.MainActivity">
+    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/ic_launcher" android:label="Pos" android:theme="@style/MainTheme" android:name="crc64156e5c4c4b5a0d88.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

@@ -40,9 +40,14 @@ namespace Pos
             //  MainPage = new SharedTransitionNavigationPage(new MainPage());
             dbPath = dbLocalPath;
             imgPath = imgLocalPath;
-            articleData = new ArticleData(dbPath);
-            clientData = new ClientData(dbPath);
-
+            try
+            {
+                articleData = new ArticleData(dbPath);
+                clientData = new ClientData(dbPath);
+            }
+            catch (Exception)
+            {
+            }
 
             //lastLoadedDate = Preferences.Get("lastLoadedDate", "11");
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design" NavigationPage.HasBackButton="False"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:forms="clr-namespace:dotMorten.Xamarin.Forms;assembly=dotMorten.Xamarin.Forms.AutoSuggestBox" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"   xmlns:helpers="clr-namespace:Pos.Helpers"
              x:Class="Pos.View.Factures">
@@ -17,10 +17,25 @@
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <forms:AutoSuggestBox PlaceholderText="Search" WidthRequest="200"
-                TextChanged="AutoSuggestBox_TextChanged"
-                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
-                SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
+            <Frame Margin="20,10" Padding="0" BorderColor="#e7e7e7">
+                <Grid >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Button HeightRequest="30" WidthRequest="40" BackgroundColor="Transparent" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont, 
+                            Glyph={x:Static helpers:IconFont.SearchWeb},
+                            Size=30,Color=Gray}"/>
+                    <Entry Grid.Column="1" x:Name="TxtSearch" TextChanged="Entry_TextChanged" FontSize="14"/>
+                    <Button Grid.Column="2" x:Name="BtClearText" HeightRequest="30" WidthRequest="40" IsVisible="False" BackgroundColor="White" BorderWidth="0"
+                                ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.Delete},
+                             Size=20,Color=red}"
+                                Clicked="BtClearText_Clicked"/>
+                </Grid>
+            </Frame>
 
 
             <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
@@ -31,8 +46,8 @@
                            
                                 <SwipeView BackgroundColor="#e7e7e7">
                                     <SwipeView.LeftItems>
-                                        <SwipeItems>
-                                            <SwipeItem Text="Modifie"
+                                    <SwipeItems  Mode="Execute">
+                                        <SwipeItem Text="Modifie"
                                        BackgroundColor="LightGreen"
                        Invoked="Edite_Invoked"   
                        IconImageSource="{FontImage FontFamily=AwesomeFont,
@@ -40,7 +55,7 @@
                                         </SwipeItems>
                                     </SwipeView.LeftItems>
                                     <SwipeView.RightItems>
-                                        <SwipeItems Mode="Execute">
+                                    <SwipeItems Mode="Reveal">
                                             <SwipeItem Text="Supprimer"
                         BackgroundColor="LightPink"
                         Invoked="Delete_Invoked" 
@@ -59,12 +74,12 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="{Binding id}"  FontSize="13"/>
-                                            <Label Text="{Binding Total}"   HorizontalOptions="EndAndExpand" FontAttributes="Bold" 
+                                            <Label Text="{Binding total}"   HorizontalOptions="EndAndExpand" FontAttributes="Bold" 
                                                      FontSize="13"/>
                                         </StackLayout>
                                     </StackLayout>
                                         <Image WidthRequest="20" Margin="10"   Source="{FontImage FontFamily=AwesomeFont,
-                                         Glyph={x:Static helpers:IconFont.ThumbUp }, Size=9,Color=DarkGreen}" IsVisible="{Binding IsPayed}"/>
+                                         Glyph={x:Static helpers:IconFont.TestTube }, Size=9,Color=DarkBlue}" IsVisible="{Binding IsPayed}"/>
                                     </StackLayout>
                                 </SwipeView>
                            

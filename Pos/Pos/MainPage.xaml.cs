@@ -91,7 +91,7 @@ namespace Pos
 
         private void TapCategory_Top(object sender, EventArgs e)
         {
-            DisplayAlert("eeeee","ttt","ok");
+            DisplayAlert("category","","ok");
         }
         private void ListCounter_Tapped(object sender, EventArgs e)
         {
@@ -166,53 +166,51 @@ namespace Pos
             await Navigation.PushAsync(catP);
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-          // click star
-
-
-        }
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TxtSearch.Text.Length > 0)
-                BtClearText.IsVisible = true;
-            else
-                BtClearText.IsVisible = false;
-
-
-            string[] str = TxtSearch.Text.Split(';');
-
-            SearchedArticleList = ArticleList;
-            for (int i = 0; i < str.Length; i++)
+            try
             {
-                if (str[i].Trim() == "")
-                    continue;
+                if (TxtSearch.Text.Length > 0)
+                    BtClearText.IsVisible = true;
+                else
+                    BtClearText.IsVisible = false;
 
-                if (str[i].Contains(':'))
+
+                string[] str = TxtSearch.Text.Split(';');
+
+                SearchedArticleList = ArticleList;
+                for (int i = 0; i < str.Length; i++)
                 {
-                    str[i] = str[i].Split(':').Last();
+                    if (str[i].Trim() == "")
+                        continue;
 
-                    int ctid = 0;
-                      ctid =  CategoryList.Where(x => x.name == str[i])
-                        .Select(x => x.cid).First();
-
-                    if (ctid >0)
+                    if (str[i].Contains(':'))
                     {
-                         SearchedArticleList = SearchedArticleList
-                        .Where(x => x.cid == ctid )
+                        str[i] = str[i].Split(':').Last();
+
+                        int ctid = 0;
+                        ctid = CategoryList.Where(x => x.name == str[i])
+                          .Select(x => x.cid).First();
+
+                        if (ctid > 0)
+                        {
+                            SearchedArticleList = SearchedArticleList
+                           .Where(x => x.cid == ctid)
+                           .Select(x => x).ToList();
+                        }
+                    }
+                    else
+                    {
+                        SearchedArticleList = SearchedArticleList
+                        .Where(x => x.name.ToUpper().Contains(str[i].ToUpper()))
                         .Select(x => x).ToList();
                     }
-                   
-                }else
-                {
-                        SearchedArticleList = SearchedArticleList
-                        .Where(x => x.name.Contains(str[i]))
-                        .Select(x => x).ToList();
                 }
+                CVArt.ItemsSource = SearchedArticleList.Take(50);
             }
-            CVArt.ItemsSource = SearchedArticleList.Take(50);
-        }
+            catch (Exception) { }
 
+        }
         private void BtClearText_Clicked(object sender, EventArgs e)
         {
             TxtSearch.Text = "";

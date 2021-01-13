@@ -75,10 +75,63 @@ namespace Pos.View
             lbName.Text = facture.name;
             modePayemant = facture.modePayement;
 
+
+            if (facture.Commande_Client != "")
+                plBlocTotal.IsVisible = false;
+            else
+                plBlocTotal.IsVisible = true;
+
+
+
+            if (facture.cid == 0)
+            {
+                try
+                {
+                   if (Connectivity.NetworkAccess != NetworkAccess.Internet) {
+                        plBlocTotal.IsVisible = false;
+                        return; }
+
+                    var cl = new Client();
+                    cl = GetClient();
+
+                    using (var _client = new HttpClient())
+                    {
+                        _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                        var uri = new Uri($"{App.uriAPI}/api/client");
+
+                        string serializedObject = JsonConvert.SerializeObject(cl);
+                        HttpContent contentPost = new StringContent(serializedObject, System.Text.Encoding.UTF8, "application/json");
+                        contentPost.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                        HttpResponseMessage response = await _client.PostAsync(uri, contentPost);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var data = await response.Content.ReadAsStringAsync();
+
+                            cl.Clid = int.Parse(data);
+                            Client.Edit(cl);
+                        }
+
+                    }
+                }
+                catch (Exception)
+                {
+                    plBlocTotal.IsVisible = false;
+                    return;
+                }
+            }
+
             await GetModePayement_API();
         }
 
-
+        private Client GetClient()
+        {
+            using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+            {
+                con.CreateTable<Client>();
+                return con.Table<Client>().Where(x => x.name == facture.name).Select(x => x).FirstOrDefault();
+            }
+        }
         private void GoBack(object sender, EventArgs e)
         {
             Navigation.PopAsync();
