@@ -118,7 +118,7 @@
 
 	/* 10: Pos.Android.dll */
 	/* uncompressed_file_size */
-	.long	352768
+	.long	353280
 	/* loaded */
 	.byte	0
 	/* data */
@@ -127,7 +127,7 @@
 
 	/* 11: Pos.dll */
 	/* uncompressed_file_size */
-	.long	1233408
+	.long	1234944
 	/* loaded */
 	.byte	0
 	/* data */

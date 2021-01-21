@@ -398,11 +398,6 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Release\90\stamp\_GeneratePac
 C:\Users\DELL\source\repos\Pos\Pos\Pos.Android\obj\Release\90\stamp\_ResolveLibraryProjectImports.stamp
 D:\vs 19\Pos\Pos\Pos.Android\bin\Release\Pos.Android.dll
 D:\vs 19\Pos\Pos\Pos.Android\bin\Release\Pos.Android.pdb
-D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro.apk
-D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro.aab
-D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro-Signed.aab
-D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro-Signed.apk
-D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro-Signed.apk.idsig
 D:\vs 19\Pos\Pos\Pos.Android\bin\Release\Pos.dll
 D:\vs 19\Pos\Pos\Pos.Android\bin\Release\Pos.pdb
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\MonoAndroid,Version=v9.0.AssemblyAttributes.cs
@@ -417,10 +412,7 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\Pos.Android.csproj.CoreCompileInputs
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\Pos.Android.csproj.CopyComplete
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\Pos.Android.dll
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\Pos.Android.pdb
-D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro.apk
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\base.zip
-D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro.aab
-D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro.apks
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\res\layout\tabbar.xml
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\res\layout\toolbar.xml
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\res\values\styles.xml
@@ -819,7 +811,6 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\src\mono\android\support\v7\
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\src\mono\android\support\v7\widget\Toolbar_OnMenuItemClickListenerImplementor.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\src\mono\MonoPackageManager_Resources.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\packaged_resources
-D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\src\com\novasoft\pospro\R.java
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\compressed_assemblies.armeabi-v7a.s
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\compressed_assemblies.arm64-v8a.s
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\typemaps.armeabi-v7a.o
@@ -837,3 +828,12 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\stamp\_ConvertCustomView.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\stamp\_GenerateJavaStubs.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\stamp\_GeneratePackageManagerJava.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\stamp\_ResolveLibraryProjectImports.stamp
+D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro2.apk
+D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro2.aab
+D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro2-Signed.aab
+D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro2-Signed.apk
+D:\vs 19\Pos\Pos\Pos.Android\bin\Release\com.novasoft.pospro2-Signed.apk.idsig
+D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro2.apk
+D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro2.aab
+D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\bin\com.novasoft.pospro2.apks
+D:\vs 19\Pos\Pos\Pos.Android\obj\Release\90\android\src\com\novasoft\pospro2\R.java

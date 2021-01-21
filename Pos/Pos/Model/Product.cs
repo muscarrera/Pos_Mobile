@@ -41,7 +41,11 @@ namespace Pos.Model
         [Ignore]
         public string Total
         {
-            get { return string.Format("{0:F2}", qte * price); }
+            get {
+                double  t = qte * price ;
+                t = t - (t * remise / 100); 
+                return string.Format("{0:F2}", t); 
+            }
         }
 
         [Ignore]

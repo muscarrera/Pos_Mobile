@@ -63,5 +63,11 @@ namespace Pos.View
             Detail = new NavigationPage(new Setting());
             IsPresented = false;
         }
+
+        private async void LogOut(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
+            System.Environment.Exit(0);
+        }
     }
 }

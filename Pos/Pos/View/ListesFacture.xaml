@@ -42,6 +42,11 @@
                             Glyph={x:Static helpers:IconFont.SettingsHelper}, Size=20,Color=Purple}" HorizontalOptions="Start" 
                               Clicked="GoToParams"/>
 
+                    <Label Text="LogOut :" FontAttributes="Bold" TextColor="#7d7d7d"/>
+                    <Button Text="  Déconnecter"  BackgroundColor="Transparent" BorderWidth="0" ImageSource="{FontImage FontFamily=AwesomeFont,
+                            Glyph={x:Static helpers:IconFont.ExitRun}, Size=20,Color=Red}" HorizontalOptions="Start" 
+                              Clicked="LogOut"/>
+
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

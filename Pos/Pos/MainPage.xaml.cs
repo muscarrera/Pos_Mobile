@@ -30,6 +30,9 @@ namespace Pos
         public int fctId = 1;
         public Facture facture;
 
+        int cid = 0;
+        string str_search = "";
+
 
         private List<Article> GetListOfArt()
         {
@@ -89,11 +92,37 @@ namespace Pos
 
         }
 
-        private void TapCategory_Top(object sender, EventArgs e)
-        {
-            DisplayAlert("category","","ok");
-        }
         private void ListCounter_Tapped(object sender, EventArgs e)
+        {
+            TxtSearch.Text = "";
+
+
+            var view = sender as PancakeView;
+            var parent = view.Parent as StackLayout;
+            var st = view.Children[0] as Label;
+           
+             cid = CategoryList.Where(x => x.name == st.Text)
+              .Select(x => x.cid).First();
+
+               
+            SearchedArticleList = ArticleList
+               .Where(x => x.cid == cid)
+               .Select(x => x).ToList();
+
+
+            CVArt.ItemsSource = SearchedArticleList.Take(50);
+
+
+            foreach (PancakeView element in parent.Children)
+            {
+                VisualStateManager.GoToState(element, "Diselected");
+                var ch = element.Children[0] as Label;
+                VisualStateManager.GoToState(ch, "Diselected");
+            }
+                VisualStateManager.GoToState(view, "Selected");
+                VisualStateManager.GoToState(st, "Selected");
+        }
+        private void ListCounter_Tapped_old(object sender, EventArgs e)
         {
             string TextValue = "";
             TextValue += "Ct:";
@@ -110,10 +139,17 @@ namespace Pos
                 var ch = element.Children[0] as Label;
                 VisualStateManager.GoToState(ch, "Diselected");
             }
-                VisualStateManager.GoToState(view, "Selected");
-                VisualStateManager.GoToState(st, "Selected");
+            VisualStateManager.GoToState(view, "Selected");
+            VisualStateManager.GoToState(st, "Selected");
         }
 
+        private double GetArticleRemise(int arid, double qte)
+        {
+            double rms = 0;
+
+            
+            return rms;
+        }
         private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -130,6 +166,9 @@ namespace Pos
                     if (pr.arid == current.arid)
                     {
                         pr.qte = qte;
+
+                        pr.remise = GetArticleRemise(pr.arid, qte);
+
                         Product.Edit(pr);
                         break;
                     }
@@ -140,7 +179,7 @@ namespace Pos
                 pr.article = current;
                 pr.fctid = this.fctId;
 
-                if (Product.AddNew(pr))
+                    if (Product.AddNew(pr))
                     ProductList.Add(pr);
             }
 
@@ -173,12 +212,50 @@ namespace Pos
                 if (TxtSearch.Text.Length > 0)
                     BtClearText.IsVisible = true;
                 else
+                {
                     BtClearText.IsVisible = false;
+
+                    SearchedArticleList = ArticleList
+                           .Where(x => x.cid == cid)
+                           .Select(x => x).ToList();
+
+                    CVArt.ItemsSource = SearchedArticleList.Take(50);
+                    return;
+                }
+                   
+
+                  //SearchedArticleList = SearchedArticleList
+                  //      .Where(x => x.name.ToUpper().Contains(TxtSearch.Text.ToUpper()))
+                  //      .Select(x => x).ToList();
+                   
+                 CVArt.ItemsSource = SearchedArticleList
+                        .Where(x => x.name.ToUpper().Contains(TxtSearch.Text.ToUpper()))
+                        .Select(x => x).ToList().Take(50);
+            }
+            catch (Exception) { }
+
+        }
+
+
+        private void TxtSearch_TextChanged_old(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (TxtSearch.Text.Length > 0)
+                    BtClearText.IsVisible = true;
+                else
+                {
+                    BtClearText.IsVisible = false;
+                    SearchedArticleList = ArticleList;
+                    CVArt.ItemsSource = SearchedArticleList.Take(50);
+                    return;
+                }
+
 
 
                 string[] str = TxtSearch.Text.Split(';');
 
-                SearchedArticleList = ArticleList;
+
                 for (int i = 0; i < str.Length; i++)
                 {
                     if (str[i].Trim() == "")

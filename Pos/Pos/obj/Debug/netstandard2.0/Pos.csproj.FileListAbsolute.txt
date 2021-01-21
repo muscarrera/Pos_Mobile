@@ -27,13 +27,7 @@ C:\Users\DELL\source\repos\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.xml
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csproj.CopyComplete
 C:\Users\DELL\source\repos\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csprojAssemblyReference.cache
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Pos.deps.json
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Pos.dll
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\ref\Pos.dll
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Pos.pdb
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.dll
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.pdb
-D:\vs 19\Pos\Pos\Pos\bin\Debug\netstandard2.0\Mono.Android.xml
+D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csprojAssemblyReference.cache
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\ListeArticle.xaml.g.cs
@@ -55,8 +49,3 @@ D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\View\Test.xaml.g.cs
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.AssemblyInfoInputs.cache
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.AssemblyInfo.cs
 D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csproj.CoreCompileInputs.cache
-D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\XamlC.stamp
-D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.csproj.CopyComplete
-D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.dll
-D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\ref\Pos.dll
-D:\vs 19\Pos\Pos\Pos\obj\Debug\netstandard2.0\Pos.pdb

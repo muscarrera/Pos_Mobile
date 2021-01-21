@@ -74,7 +74,7 @@ namespace Pos.View
                 if ( client.Clid <= 0)
             {
                 client.@ref = $"clt_{App.userName}";
-                client.groupe = "GM Gros Commercial";
+                client.groupe = "GF-Gros Commercial";
                 client.isCompany = false;
                 client.ice = "ice";
                 client.gsm = txtTel.Text;

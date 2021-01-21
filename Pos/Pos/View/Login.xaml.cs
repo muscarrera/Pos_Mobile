@@ -57,9 +57,9 @@ namespace Pos.View
         {
             InitializeComponent();
                         
-                TxtUser.Text = Preferences.Get("UserName", "user");
-                UserPass = Preferences.Get("UserPass", "pass");
-                activeDate = Preferences.Get("active_date", DateTime.Now);
+                TxtUser.Text = Preferences.Get(App.userName, "user");
+                UserPass = Preferences.Get(App.str_userPass, "pass");
+                activeDate = Preferences.Get(App.str_activeDate, DateTime.Now);
 
             txtactive.IsVisible = !isActive;
         }
@@ -87,21 +87,15 @@ namespace Pos.View
                 ArtIndic.IsVisible = false;
             }
 
-           
-            //try
-            //{
-            //    hasClient = await GetClientsAPI();
-            //}
-            //catch (Exception)
-            //{
-            //    CltIndic.IsRunning = false;
-            //    CltIndic.IsVisible = false;
-            //}
-
-
             try
             {
                 await GetCatsAPI();
+            }
+            catch (Exception) { }
+
+            try
+            {
+                await GetRemisesAPI();
             }
             catch (Exception) { }
         }
@@ -193,6 +187,48 @@ namespace Pos.View
 
                     string str = $"{App.uriAPI}/api/val/{App.category_value_string}";
                     content = await _httpClient.GetStringAsync(str);
+
+                    return i;
+                }
+            }
+            catch (Exception) { return 0; }
+        }
+
+        //getCategories 
+        public async Task<int> GetRemisesAPI()
+        {
+
+            List<ArticleRemise> arts = new List<ArticleRemise>();
+
+            if (await isDbValueChanged(App.remise_value_string) == false)
+            {
+                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+                {
+                    con.CreateTable<ArticleRemise>();
+                    App.listeRemise = con.Table<ArticleRemise>().ToList();
+                    App.listeRemise = App.listeRemise.OrderByDescending(x => x.qte).ToList();
+                }
+
+
+                return 0;  }
+
+            try {
+
+            string content = await _httpClient.GetStringAsync($"{App.uriAPI}/api/remise");
+            arts = JsonConvert.DeserializeObject<List<ArticleRemise>>(content);
+                       
+                using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
+                {
+                    con.CreateTable<ArticleRemise>();
+                    con.DropTable<ArticleRemise>();
+                    con.CreateTable<ArticleRemise>();
+
+                    int i = con.InsertAll(arts);
+
+                    string str = $"{App.uriAPI}/api/val/{App.remise_value_string }";
+                    content = await _httpClient.GetStringAsync(str);
+
+                    App.listeRemise = arts.OrderByDescending(x => x.qte).ToList() ;
 
                     return i;
                 }

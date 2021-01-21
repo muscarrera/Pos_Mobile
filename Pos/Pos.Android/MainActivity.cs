@@ -30,7 +30,7 @@ namespace Pos.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
 
-            string dbPath = "My_Ferst.sqlite";
+            string dbPath = "PosGrosAFD.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string dbFullPath = Path.Combine(folderPath, dbPath);
             string imgFullPath = Path.Combine(folderPath, "AlMohassib/");

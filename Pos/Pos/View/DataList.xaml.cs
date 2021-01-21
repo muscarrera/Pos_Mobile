@@ -157,8 +157,7 @@ namespace Pos.View
 
         public async Task GetModePayement_API()
         {
-
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+           if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 HttpClient client;
                 client = new HttpClient();
@@ -169,8 +168,7 @@ namespace Pos.View
                 }
                 catch (Exception) { }
             }
-
-    }
+        }
         public async Task ShowModal_modePayement()
         {
             //SelectModePayement mp = new SelectModePayement(facture.cid, Total);
@@ -206,7 +204,7 @@ namespace Pos.View
             var result = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                await DisplayAlert(@"\tTodoItem successfully saved.", "", "ok");
+                await DisplayAlert(@"\successfully saved.", "", "ok");
                 facture.Commande_Client = response.Content.ToString();
                 Facture.Edit(facture);
             }
@@ -224,7 +222,7 @@ namespace Pos.View
                     var uri = new Uri($"{App.uriAPI}/api/commande");
                   
                     List<Item> itemsList = new List<Item>();
-                    foreach (var pr in products)   {
+                    foreach (var pr in products) {
                         Item i = new Item();
                         i.arid = pr.arid;
                         i.cid = pr.cid;
@@ -267,7 +265,7 @@ namespace Pos.View
             }
         }
 
-        private async void Go_Back(object sender, EventArgs e)
+        private async void Save_Commande(object sender, EventArgs e)
         {
             await SaveProduct();
             //await SaveCommandAsync();
