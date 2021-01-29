@@ -36,7 +36,13 @@ namespace Pos.Model
         [Ignore]
         public string PriceText
         {
-            get { return string.Format("{0} ({1})  x  {2:F2} Dh",qte,unit, price); }
+            get { 
+                string str= string.Format("{0} ({1})  x  {2:F2} Dh",qte,unit, price);
+                if (remise>0) 
+                    str += string.Format("  | Remise : ({0} %)", remise);
+
+                return str;
+            }
         }
         [Ignore]
         public string Total

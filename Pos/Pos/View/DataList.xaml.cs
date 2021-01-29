@@ -267,6 +267,7 @@ namespace Pos.View
 
         private async void Save_Commande(object sender, EventArgs e)
         {
+            btSave.IsEnabled = false;
             await SaveProduct();
             //await SaveCommandAsync();
             await Navigation.PushAsync(new Factures());

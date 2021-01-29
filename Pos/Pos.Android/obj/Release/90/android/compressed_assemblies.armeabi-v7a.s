@@ -127,7 +127,7 @@
 
 	/* 11: Pos.dll */
 	/* uncompressed_file_size */
-	.long	1234944
+	.long	1245696
 	/* loaded */
 	.byte	0
 	/* data */

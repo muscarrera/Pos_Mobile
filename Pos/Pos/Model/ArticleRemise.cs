@@ -17,5 +17,10 @@ namespace Pos.Model
         public bool isGros { get; set; }
         public DateTime date { get; set; }
 
+        [Ignore]
+        public string DetailsText
+        {
+            get { return string.Format("{0} u -> {1} %  {2}", qte,remise,date.ToString("dd MMM")); }
+        }
     }
 }

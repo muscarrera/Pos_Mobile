@@ -58,11 +58,27 @@ namespace Pos.View
             await Navigation.PopAsync();
         }
 
+        private double GetArticleRemise(int? arid, double qte)
+        {
+            double rms = 0;
+            try
+            {
+              ArticleRemise art = App.listeRemise
+                            .Where(x => x.arid == arid && x.date >= DateTime.Now && x.qte <= qte).FirstOrDefault();
+
+              rms = art.remise;
+            }
+            catch (Exception)
+            { rms = 0; }
+
+            return rms;
+        }
         private async void Add_Item(object sender, EventArgs e)
         {
             product.qte = double.Parse(txtQte.Text);
             product.price = double.Parse(txtPrice.Text);
 
+            product.remise = GetArticleRemise(product.arid,product.qte);
             Product.Edit(product);
             await Navigation.PopAsync();
         }

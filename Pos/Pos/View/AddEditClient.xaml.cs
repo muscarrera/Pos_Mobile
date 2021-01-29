@@ -87,9 +87,10 @@ namespace Pos.View
                 client.ModePayement = "Cache";
                 client.isBlocked = false;
 
-               if (!isEdit)
+               if (!isEdit) {
                         i= con.Insert(client);
-               else
+                         isEdit = true;
+                } else
                         i = con.Update(client);
                }
                 else { i = con.Update(client); }

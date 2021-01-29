@@ -69,7 +69,6 @@ namespace Pos.View
         {
             base.OnAppearing();
 
-
             //test WIFI
 
             if (TestConnection()==false)
@@ -111,8 +110,8 @@ namespace Pos.View
 
                 return content.ToLower().Contains("true");
             }
-            catch (Exception ex) {
-                await DisplayAlert(ex.Message, "", "ok");
+            catch (Exception) {
+               // await DisplayAlert(ex.Message, "", "ok");
                 return false; }
     }
 
@@ -146,8 +145,8 @@ namespace Pos.View
                 }
                 return true;
             }
-            catch (Exception ex) {
-                await DisplayAlert(ex.Message, "", "ok");
+            catch (Exception) {
+              //  await DisplayAlert(ex.Message, "", "ok");
                 return false;}
            
         }
@@ -168,9 +167,9 @@ namespace Pos.View
             {
             arts = JsonConvert.DeserializeObject<List<Category>>(content);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                await DisplayAlert(ex.Message, "", "ok");
+              //  await DisplayAlert(ex.Message, "", "ok");
             }
 
             
@@ -214,7 +213,7 @@ namespace Pos.View
 
             try {
 
-            string content = await _httpClient.GetStringAsync($"{App.uriAPI}/api/remise");
+            string content = await _httpClient.GetStringAsync($"{App.uriAPI}/api/remise"); 
             arts = JsonConvert.DeserializeObject<List<ArticleRemise>>(content);
                        
                 using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
@@ -233,7 +232,9 @@ namespace Pos.View
                     return i;
                 }
             }
-            catch (Exception) { return 0; }
+            catch (Exception ) {
+               // await DisplayAlert(ex.Message, "err", "ok");
+                return 0; }
         }
         //get Clients
         public async Task<bool> GetClientsAPI()

@@ -61,3 +61,4 @@ D:\vs 19\Pos\Pos\Pos\obj\Release\netstandard2.0\Pos.csproj.CopyComplete
 D:\vs 19\Pos\Pos\Pos\obj\Release\netstandard2.0\Pos.dll
 D:\vs 19\Pos\Pos\Pos\obj\Release\netstandard2.0\ref\Pos.dll
 D:\vs 19\Pos\Pos\Pos\obj\Release\netstandard2.0\Pos.pdb
+D:\vs 19\Pos\Pos\Pos\obj\Release\netstandard2.0\View\ListesRemise.xaml.g.cs

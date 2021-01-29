@@ -31,7 +31,7 @@ namespace Pos
         public Facture facture;
 
         int cid = 0;
-        string str_search = "";
+        //string str_search = "";
 
 
         private List<Article> GetListOfArt()
@@ -143,11 +143,21 @@ namespace Pos
             VisualStateManager.GoToState(st, "Selected");
         }
 
-        private double GetArticleRemise(int arid, double qte)
+        private double GetArticleRemise(int? arid, double qte)
         {
             double rms = 0;
+            try
+            {
+              ArticleRemise art = App.listeRemise
+                .Where(x => x.arid == arid && x.date >= DateTime.Now && x.qte <= qte).FirstOrDefault();
 
-            
+            rms = art.remise;
+            }
+            catch (Exception)
+            { rms = 0;   }
+
+          
+
             return rms;
         }
         private void CollectionViewListSelectionChanged(object sender, SelectionChangedEventArgs e)

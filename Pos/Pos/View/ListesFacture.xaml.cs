@@ -69,5 +69,11 @@ namespace Pos.View
             await Navigation.PopToRootAsync();
             System.Environment.Exit(0);
         }
+
+        private void GoToRemises(object sender, EventArgs e)
+        {
+            Detail = new NavigationPage(new ListesRemise());
+            IsPresented = false;
+        }
     }
 }

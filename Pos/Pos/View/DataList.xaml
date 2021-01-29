@@ -115,7 +115,7 @@
                       BackgroundColor="Purple" >
                 <Button  BackgroundColor="Transparent" TextColor="White" FontSize="20"  Padding="15,10" VerticalOptions="FillAndExpand" 
                             HorizontalOptions="FillAndExpand" BorderWidth="0" Text="Enregistrer"
-                            Clicked="Save_Commande" ImageSource="{FontImage FontFamily=AwesomeFont,
+                              x:Name="btSave" Clicked="Save_Commande" ImageSource="{FontImage FontFamily=AwesomeFont,
                             Glyph={x:Static helpers:IconFont.Calendar}, Size=20,Color=Gold}"/>
             </pv:PancakeView>
         </StackLayout>
