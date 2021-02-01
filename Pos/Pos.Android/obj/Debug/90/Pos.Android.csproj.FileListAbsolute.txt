@@ -1033,17 +1033,3 @@ D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_ConvertCustomView.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\typemaps.x86.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\typemaps.x86_64.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.x86.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.x86_64.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\compressed_assemblies.x86.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\compressed_assemblies.x86_64.s
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\typemaps.x86.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\typemaps.x86_64.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.x86.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\environment.x86_64.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\compressed_assemblies.x86.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\android\compressed_assemblies.x86_64.o
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\app_shared_libraries\x86\libxamarin-app.so
-D:\vs 19\Pos\Pos\Pos.Android\obj\Debug\90\app_shared_libraries\x86_64\libxamarin-app.so

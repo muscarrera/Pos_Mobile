@@ -44,7 +44,7 @@ namespace Pos
             base.OnAppearing();
 
             using (SQLiteConnection con = new SQLiteConnection(App.dbPath))
-            {
+            { 
                 con.CreateTable<Category>();
                 var cats= con.Table<Category>().ToList();
                 lsCat.ItemsSource = cats;

@@ -7,8 +7,8 @@ namespace Pos.Model
 {
     public class Category
     {
-       [PrimaryKey, AutoIncrement]
-        public int cid { get; set; }
+       [PrimaryKey]
+       public int cid { get; set; }
         [MaxLength(250)]
         public string name { get; set; }
         [MaxLength(250)]

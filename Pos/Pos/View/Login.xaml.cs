@@ -57,7 +57,7 @@ namespace Pos.View
         {
             InitializeComponent();
                         
-                TxtUser.Text = Preferences.Get(App.userName, "user");
+                TxtUser.Text = Preferences.Get(App.str_userName, "user");
                 UserPass = Preferences.Get(App.str_userPass, "pass");
                 activeDate = Preferences.Get(App.str_activeDate, DateTime.Now);
 
@@ -158,7 +158,7 @@ namespace Pos.View
             
             if (await isDbValueChanged(App.category_value_string) == false)
             {
-                return 0;
+               // return 0;
             }
 
             string content = await _httpClient.GetStringAsync($"{App.uriAPI}/api/cat");
